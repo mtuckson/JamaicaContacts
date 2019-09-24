@@ -1,0 +1,24 @@
+<h1 class="display-1 text-center">List of Contacts</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First</th>
+      <th>Last</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%=link_to contact.first_name, contact %></td>
+        <td><%= link_to contact.last_name, contact %></td>
+        <td><%= contact.email_address %></td>
+        <td><%= contact.phone_number %></td>
+        <td><%= contact.postal_address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Contact', new_contact_path %>

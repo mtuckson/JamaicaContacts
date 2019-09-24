@@ -1,0 +1,2 @@
+module EcclesiaHelper
+end

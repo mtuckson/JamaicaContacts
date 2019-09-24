@@ -1,0 +1,23 @@
+<%= simple_form_for ecclesium do |f| %>
+<div class="container">
+
+
+  <div class="row">
+    <%= f.input :name, wrapper_html: { class: 'col' } %>
+    <%= f.input :postal_address, wrapper_html: { class: 'col' } %>
+    <%= f.input :recording_brother_id, collection: members, label_method: :full_name, value_method: :id, wrapper_html: { class: 'col' } %>
+
+
+  </div>
+
+  <div class="row">
+    <%= f.input :longitude, wrapper_html: { class: 'col' } %>
+    <%= f.input :latitude, wrapper_html: { class: 'col' } %>
+
+  </div>
+  <%= f.input :notes %>
+
+
+  <%= f.button :submit %>
+<% end %>
+</div>

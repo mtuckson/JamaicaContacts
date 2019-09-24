@@ -1,0 +1,38 @@
+<%= simple_form_for contact do |f| %>
+<div class="container">
+
+
+  <div class="row">
+    <%= f.input :first_name, wrapper_html: { class: 'col' } %>
+    <%= f.input :alias, wrapper_html: { class: 'col' } %>
+    <%= f.input :last_name, wrapper_html: { class: 'col' }  %>
+  </div>
+  <div class="row">
+    <%= f.input :phone_number, wrapper_html: { class: 'col' } %>
+    <%= f.input :email_address, wrapper_html: { class: 'col' } %>
+    <%= f.input :postal_address, wrapper_html: { class: 'col' } %>
+  </div>
+  <div class="row">
+    <%= f.input :longitude, wrapper_html: { class: 'col' } %>
+    <%= f.input :latitude, wrapper_html: { class: 'col' } %>
+    <%= f.input :baptism_status,     as: :radio_buttons, wrapper_html: { class: 'col' }  %>
+    <%= f.input :gender, as: :radio_buttons, collection: Contact.genders,
+                label_method: :second, value_method: :first,wrapper_html: { class: 'col' }  %>
+
+
+  </div>
+  <div class="row">
+    <%= f.input :birth_date, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year,
+                              use_month_numbers: true,
+                               prompt: { day: 'Select day', month: 'Select month', year: 'Select year' },
+                              order: [:day, :month, :year],
+                               wrapper_html: { class: 'col' } %>
+     <%= f.input :ecclesium_id, collection: ecclesia, wrapper_html: { class: 'col' }%>
+  </div>
+  <%= f.input :notes %>
+
+
+  <%= f.button :submit %>
+<% end %>
+</div>

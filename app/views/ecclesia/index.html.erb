@@ -1,0 +1,35 @@
+<h1 class="display-1 text-center">List of Ecclesias</h1>
+<div class="container">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Recording Brother</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ecclesia.each do |ecclesium| %>
+      <tr>
+        <td><%= link_to ecclesium.name, ecclesium_path(ecclesium) %></td>
+        <td><%= ecclesium.postal_address %></td>
+        <% if ecclesium.recording_brother_id %>
+        <% recording_brother = Contact.find(ecclesium.recording_brother_id)  %>
+        <% else %>
+        <% recording_brother = Contact.new %>
+        <% recording_brother.first_name = "none" %>
+        <% end %>
+        <% if recording_brother.first_name =="none" %>
+        <td><%= recording_brother.first_name %></td>
+        <% else %>
+        <td><%= link_to recording_brother.full_name, contact_path(recording_brother) %></td>
+        <% end %>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add Ecclesia', new_ecclesium_path %>
+</div>
