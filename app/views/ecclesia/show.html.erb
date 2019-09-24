@@ -1,3 +1,11 @@
+<% provide :head_tags do %>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(<%=@ecclesium.latitude%>, <%=@ecclesium.longitude%>)
+    });
+    </script>
+<% end %>
+
 <h1> Ecclesia Information: </h1>
 <table class="table table-striped">
   <thead>
@@ -54,6 +62,10 @@
     <% end %>
   </tbody>
 </table>
+
+<div id="map">
+
+</div>
 <%= link_to "Edit", edit_ecclesium_path(@ecclesium) %>
 <%= link_to "DELETE", @ecclesium, method: :delete %>
 <%= link_to "All Ecclesias", ecclesia_path %>
