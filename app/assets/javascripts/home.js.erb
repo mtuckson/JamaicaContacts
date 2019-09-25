@@ -1,0 +1,57 @@
+function initMapHome(Ecclesia, Contacts) {
+  var myCoords = new google.maps.LatLng(18.1096, -77.2975);
+  var mapOptions = {
+    center: myCoords,
+    zoom: 9
+  };
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  var infowindow = new google.maps.InfoWindow({
+    content: "Content"
+  });
+  var markers = new Array();
+
+  var i;
+  for (i = 0; i < Ecclesia.length; i++) {
+
+    var myCoords = new google.maps.LatLng(Ecclesia[i].latitude, Ecclesia[i].longitude);
+
+    var marker = new google.maps.Marker({
+      position: myCoords,
+      map: map,
+      title: Ecclesia[i].name +' Ecclesia',
+      icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+    });
+    markers.push(marker);
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent('<a href="/ecclesia/'+Ecclesia[i].id+'">'+Ecclesia[i].name+' Ecclesia</a>');
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
+
+  }
+
+  var markersForContacts = new Array();
+  for (i = 0; i < Contacts.length; i++) {
+
+    var myCoords = new google.maps.LatLng(Contacts[i].latitude, Contacts[i].longitude);
+
+    var marker = new google.maps.Marker({
+      position: myCoords,
+      map: map,
+      title: Contacts[i].first_name +' '+Contacts[i].last_name,
+      icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+    });
+    markersForContacts.push(marker);
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent('<a href="/contacts/'+Contacts[i].id+'">'+Contacts[i].first_name+' '+ Contacts[i].last_name+'</a>');
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
+
+  }
+
+}

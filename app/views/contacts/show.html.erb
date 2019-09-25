@@ -1,3 +1,10 @@
+<% provide :head_tags do %>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(<%=@contact.latitude%>, <%=@contact.longitude%>)
+    });
+    </script>
+<% end %>
 <h1> Contact Information: </h1>
 <table class="table table-striped">
   <thead>
@@ -50,6 +57,9 @@
 </table>
 <h3>Notes: </h3>
 <p><%= @contact.notes  %></p>
+<div id="map">
+
+</div>
 <%= link_to "Edit", edit_contact_path(@contact) %>
 <%= link_to "DELETE", @contact, method: :delete %>
 <%= link_to "All Contacts", contacts_path %>

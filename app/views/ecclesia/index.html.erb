@@ -12,7 +12,7 @@
   <tbody>
     <% @ecclesia.each do |ecclesium| %>
       <tr>
-        <td><%= link_to ecclesium.name, ecclesium_path(ecclesium) %></td>
+        <td><%= link_to ecclesium.name, ecclesium_path(ecclesium), input_html: {'data-turbolinks'=> "false"}%></td>
         <td><%= ecclesium.postal_address %></td>
         <% if ecclesium.recording_brother_id %>
         <% recording_brother = Contact.find(ecclesium.recording_brother_id)  %>

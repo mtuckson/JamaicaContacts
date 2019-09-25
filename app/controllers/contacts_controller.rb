@@ -11,17 +11,17 @@ class ContactsController < ApplicationController
     end
   end
   def new
-  @contact = Contact.new
-  @ecclesia = Ecclesium.all
+    @contact = Contact.new
+    @ecclesia = Ecclesium.all
   end
   def create
-  @contact = Contact.new(contact_params)
-  @contact.save
-  redirect_to @contact
+    @contact = Contact.new(contact_params)
+    @contact.save
+    redirect_to @contact
   end
   def edit
-  @contact = Contact.find(params[:id])
-  @ecclesia = Ecclesium.all
+    @contact = Contact.find(params[:id])
+    @ecclesia = Ecclesium.all
   end
   def update
     @contact = Contact.find(params[:id])
@@ -29,17 +29,17 @@ class ContactsController < ApplicationController
     redirect_to @contact
   end
   def destroy
-  @contact = Contact.find(params[:id])
-  @contact.destroy
-  @ecclesia = Ecclesium.all
-  @ecclesia.each do |ecclesia|
-    if @contact.id == ecclesia.recording_brother_id
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    @ecclesia = Ecclesium.all
+    @ecclesia.each do |ecclesia|
+      if @contact.id == ecclesia.recording_brother_id
         ecclesia.recording_brother_id = nil
         ecclesia.save
       end
     end
 
-  redirect_to contacts_path
+    redirect_to contacts_path
   end
 
 
@@ -47,9 +47,9 @@ class ContactsController < ApplicationController
   private
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :alias, :phone_number,
-                                    :email_address, :postal_address, :longitude,
-                                    :latitude, :baptism_status, :gender, :birth_date,
-                                    :notes, :ecclesium_id)
-  end
+      :email_address, :postal_address, :longitude,
+      :latitude, :baptism_status, :gender, :birth_date,
+      :notes, :ecclesium_id)
+    end
 
-end
+  end
