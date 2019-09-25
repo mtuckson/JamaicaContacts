@@ -1,1 +1,11 @@
-<p> hi! </p>
+<% provide :head_tags do %>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMapHome(<%=@ecclesia%>, <%=@contacts%>)
+    });
+    </script>
+<% end %>
+
+<div id="map">
+
+</div>

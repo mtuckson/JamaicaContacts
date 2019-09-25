@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_020225) do
+ActiveRecord::Schema.define(version: 2019_09_25_163530) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2019_09_23_020225) do
     t.float "longitude"
     t.float "latitude"
     t.text "notes"
-    t.integer "recording_brother"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "recording_brother_id"
