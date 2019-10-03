@@ -1,11 +1,11 @@
 class EcclesiaController < ApplicationController
-
+  before_action :authenticate_user!
   def index
-    @ecclesia = Ecclesium.all
+    @ecclesia = Ecclesium.all.sort_by(&:name)
   end
   def show
     @ecclesium = Ecclesium.find(params[:id])
-    @contacts = @ecclesium.contacts
+    @contacts = @ecclesium.contacts.sort_by(&:full_name)
     if @ecclesium.recording_brother_id
       @recording_brother = Contact.find(@ecclesium.recording_brother_id)
     else @recording_brother = Contact.new
@@ -15,7 +15,7 @@ class EcclesiaController < ApplicationController
   end
   def new
     @ecclesium = Ecclesium.new
-    @members = Contact.all
+    @members = Contact.all.sort_by(&:full_name)
   end
   def create
     @ecclesium = Ecclesium.new(ecclesia_params)
@@ -37,11 +37,16 @@ class EcclesiaController < ApplicationController
   end
   def edit
     @ecclesium = Ecclesium.find(params[:id])
-    @members = @ecclesium.contacts
+    @members = @ecclesium.contacts.sort_by(&:full_name)
   end
   def update
     @ecclesium = Ecclesium.find(params[:id])
     @ecclesium.update(ecclesia_params)
+    if @ecclesium.recording_brother_id
+      @recording_brother = Contact.find(@ecclesium.recording_brother_id)
+      @recording_brother.ecclesium_id = @ecclesium.id
+      @recording_brother.save
+    end
     redirect_to @ecclesium
   end
   def destroy

@@ -6,6 +6,11 @@
     </script>
 <% end %>
 
-<div id="map">
+<% if current_user %>
 
+<%= link_to 'Sign out' , destroy_user_session_path, method: :delete %>
+<div id="map">
+<% else %>
+<%= link_to 'Sign in' , new_user_session_path %>
+<% end %>
 </div>

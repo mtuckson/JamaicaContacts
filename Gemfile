@@ -30,7 +30,7 @@ gem 'geocoder'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'simple_form'
 #gem 'jquery-turbolinks'
-
+gem 'devise'
 gem 'pry-rails', :group => :development
 
 group :development, :test do
