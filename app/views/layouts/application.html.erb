@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>JamaicaContacts</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAq7YSMMp-zWSRYBhmX59kFXb7yrw_aaOE' %>
-   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   <%= yield(:head_tags) %>
-  </head>
+<head>
+  <title>JamaicaContacts</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
 
-  <body>
-    <%= render 'layouts/alerts' %>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAq7YSMMp-zWSRYBhmX59kFXb7yrw_aaOE' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= yield(:head_tags) %>
+</head>
+
+
+<body>
+  <%= render 'layouts/navbar'%>
+  <%= render 'layouts/alerts' %>
+  <%= yield %>
+</body>
 </html>
