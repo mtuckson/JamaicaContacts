@@ -1,20 +1,23 @@
-
+  <% if current_user %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Jamaican Contacts</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+
+
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="<%= contacts_path %>">All Contacts <span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav nav-fill w-50  mx-auto ">
+      <li class="nav-item active text-center">
+        <a class="nav-link font20" href=<%= root_path %>>Jamaican Contacts</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= ecclesia_path %>">All Ecclesias</a>
+      <li class="nav-item active text-center">
+        <a class="nav-link font20" href="<%= contacts_path %>">All Contacts <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Sign out' , destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      <li class="nav-item active text-center ">
+        <a class="nav-link font20" href="<%= ecclesia_path %>">All Ecclesias</a>
+      </li>
+      <li class="nav-item active text-center">
+        <%= link_to 'Sign out' , destroy_user_session_path, method: :delete, class: 'nav-link font20' %>
       </li>
     </ul>
   </div>
+
 </nav>
+  <% end %>

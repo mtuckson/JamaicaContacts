@@ -36,12 +36,14 @@
                                wrapper_html: { class: 'col' } %>
      <%= f.input :ecclesium_id, collection: ecclesia, wrapper_html: { class: 'col' }%>
   </div>
-  <%= f.input :notes %>
+  <%= f.input :notes, input_html: {class: 'notes'} %>
 
 
-  <%= f.button :submit %>
-<% end %>
-</div>
+
+
 <p>
   <div id="initMapContactEdit"></div>
 </p>
+<%= f.button :submit %>
+<% end %>
+</div>

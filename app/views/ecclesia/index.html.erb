@@ -1,9 +1,19 @@
+<% provide :head_tags do %>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMapEcclesias(<%=@ecclesiaToJson%>)
+    });
+    </script>
+<% end %>
+
+
 <h1 class="display-1 text-center">List of Ecclesias</h1>
 <div class="container">
 
-<table class="table table-striped">
+<table class="table table-striped" id = "contantEcclesiaTables">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Address</th>
       <th>Recording Brother</th>
@@ -12,6 +22,7 @@
   <tbody>
     <% @ecclesia.each do |ecclesium| %>
       <tr>
+        <td><img src='http://maps.google.com/mapfiles/ms/icons/green-dot.png' alt="green marker"></td>
         <td><%= link_to ecclesium.name, ecclesium_path(ecclesium), input_html: {'data-turbolinks'=> "false"}%></td>
         <td><%= ecclesium.postal_address %></td>
         <% if ecclesium.recording_brother_id %>
@@ -32,4 +43,6 @@
   </tbody>
 </table>
 <%= link_to 'Add Ecclesia', new_ecclesium_path %>
+
+<div id="initMapEcclesias"></div>
 </div>

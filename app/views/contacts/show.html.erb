@@ -1,10 +1,11 @@
 <% provide :head_tags do %>
     <script>
     document.addEventListener("DOMContentLoaded", function(){
-        initMap(<%=@contact.latitude%>, <%=@contact.longitude%>)
+        initMapContact(<%=@contactToJson%>)
     });
     </script>
 <% end %>
+
 <h1> Contact Information: </h1>
 <table class="table table-striped">
   <thead>

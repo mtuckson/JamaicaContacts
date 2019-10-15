@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
   end
   def show
     @contact = Contact.find(params[:id])
+    @contactToJson = @contact.to_json.html_safe
     if @contact.ecclesium_id
       @ecclesium = Ecclesium.find(@contact.ecclesium_id)
     else @ecclesium = Ecclesium.new

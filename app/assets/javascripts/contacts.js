@@ -1,5 +1,5 @@
-function initMap(lat, lng) {
-    var myCoords = new google.maps.LatLng(lat, lng);
+function initMapContact(contact) {
+    var myCoords = new google.maps.LatLng(contact.latitude, contact.longitude);
     var mapOptions = {
     center: myCoords,
     zoom: 14
@@ -8,7 +8,9 @@ function initMap(lat, lng) {
 
     var marker = new google.maps.Marker({
     position: myCoords,
-    map: map
+    map: map,
+    title: contact.first_name +' '+contact.last_name,
+    icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
 });
 }
 function initMapContactEdit() {
@@ -32,7 +34,8 @@ function initMapContactEdit() {
         position: myCoords,
         animation: google.maps.Animation.DROP,
         map: map,
-        draggable: true
+        draggable: true,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
     });
     // refresh marker position and recenter map on marker
     function refreshMarker(){

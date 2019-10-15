@@ -2,6 +2,7 @@ class EcclesiaController < ApplicationController
   before_action :authenticate_user!
   def index
     @ecclesia = Ecclesium.all.sort_by(&:name)
+    @ecclesiaToJson = Ecclesium.all.to_json.html_safe
   end
   def show
     @ecclesium = Ecclesium.find(params[:id])
@@ -12,6 +13,8 @@ class EcclesiaController < ApplicationController
       @recording_brother.first_name = "none"
       @recording_brother.last_name =""
     end
+    @ecclesiumToJson = @ecclesium.to_json.html_safe
+    @contactsToJson = @contacts.to_json.html_safe
   end
   def new
     @ecclesium = Ecclesium.new

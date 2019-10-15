@@ -1,7 +1,11 @@
 <h1 class="display-1 text-center">List of Contacts</h1>
-<table class="table table-striped">
+<div class="container">
+
+
+<table class="table table-striped" id = "contantEcclesiaTables">
   <thead>
     <tr>
+      <th></th>
       <th>First</th>
       <th>Last</th>
       <th>Email</th>
@@ -12,6 +16,7 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
+        <td><img src='http://maps.google.com/mapfiles/ms/icons/red-dot.png' alt="red marker"></td>
         <td><%=link_to contact.first_name, contact %></td>
         <td><%= link_to contact.last_name, contact %></td>
         <td><%= contact.email_address %></td>
@@ -22,3 +27,4 @@
   </tbody>
 </table>
 <%= link_to 'New Contact', new_contact_path %>
+</div>
