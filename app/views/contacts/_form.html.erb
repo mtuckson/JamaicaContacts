@@ -35,6 +35,7 @@
                               order: [:day, :month, :year],
                                wrapper_html: { class: 'col' } %>
      <%= f.input :ecclesium_id, collection: ecclesia, wrapper_html: { class: 'col' }%>
+     <%= f.input :avatar,  label: 'Profil Pic', wrapper_html: { class: 'col' } %>
   </div>
   <%= f.input :notes, input_html: {class: 'notes'} %>
 

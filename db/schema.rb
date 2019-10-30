@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_145629) do
+ActiveRecord::Schema.define(version: 2019_10_17_221308) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_10_03_145629) do
     t.string "alias"
     t.string "gender"
     t.integer "ecclesium_id"
+    t.string "avatar"
     t.index ["ecclesium_id"], name: "index_contacts_on_ecclesium_id"
   end
 

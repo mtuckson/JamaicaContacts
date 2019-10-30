@@ -1,66 +1,100 @@
 <% provide :head_tags do %>
-    <script>
-    document.addEventListener("DOMContentLoaded", function(){
-        initMapContact(<%=@contactToJson%>)
-    });
-    </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    initMapContact(<%=@contactToJson%>)
+  });
+</script>
 <% end %>
 
-<h1> Contact Information: </h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>First</th>
-      <th>Last</th>
-      <th>Alias</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Birth Date</th>
-      <th>Baptized</th>
-      <th>Ecclesia</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%= @contact.first_name %></td>
-        <td><%= @contact.last_name %></td>
-        <td><%= @contact.alias %></td>
-        <td><%= @contact.email_address %></td>
-        <td><%= @contact.phone_number %></td>
-        <td><%= @contact.birth_date %></td>
-        <% if @contact.baptism_status %>
-          <td>YES</td>
-        <% else %>
-          <td>NO</td>
-        <% end %>
-        <% if @ecclesium.name =="none" %>
-        <th><%= @ecclesium.name %></th>
-        <% else %>
-        <td><%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %></td>
-        <% end %>
-      </tr>
-  </tbody>
-<h3>Location: </h3>
-<table class="table table-striped">
-<thead>
-  <tr>
-    <th>Address</th>
-    <th>Longitude</th>
-    <th>Latitude</th>
-  </tr>
-</thead>
-<tbody>
-    <tr>
-      <td><%= @contact.postal_address %></td>
-      <td><%= @contact.longitude %></td>
-      <td><%= @contact.latitude %></td>
-</tbody>
-</table>
-<h3>Notes: </h3>
-<p><%= @contact.notes  %></p>
-<div id="map">
+<div class="container">
+
+
+  <div class="contactInfoDiv row">
+
+    <div class="col">
+
+
+      <div class="profilPic"  style ="background: url(<%= @contact.avatar_url %>); background-position: center; background-repeat: no-repeat;
+        background-size: cover;">
+
+      </div>
+    </div>
+    <div class="col-9 contactInfoCol">
+
+
+      <% if @contact.alias = "" %>
+      <h3 class="centerText"><%= @contact.broOrSis %> <%= @contact.full_name %></h3>
+      <% else %>
+      <h3 class="centerText"><%= @contact.first_name %> "<%= @contact.alias %>" <%= @contact.last_name %></h3>
+      <% end %>
+      <div class="row contactInfoRows">
+        <div class="col">
+          <h5>Email: <%= @contact.email_address %></h5>
+        </div>
+        <div class="col">
+          <h5>Phone Number: <%= @contact.phone_number %></h5>
+        </div>
+        <div class="col">
+          <h5>Birth Date: <%= @contact.birth_date %></h5>
+        </div>
+
+      </div>
+
+      <div class="row contactInfoRows">
+        <div class="col">
+          <h5>Address: <%= @ecclesium.postal_address %></h5>
+
+        </div>
+        <div class="col">
+          <div class="row contactInfoRows">
+
+            <div class="col">
+              <% if @ecclesium.name =="none" %>
+              <h5>Ecclesia: <%= @ecclesium.name %></h5>
+              <% else %>
+              <h5>Ecclesia: <%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %></h5>
+              <% end %>
+            </div>
+            <div class="col">
+              <h5>Baptism status: <%= @contact.baptism_status %></h5>
+            </div>
+
+          </div>
+          <div class="row contactInfoRows">
+            <div class="col">
+              <h5>Location Coordinates: <%= @contact.longitude %>, <%= @contact.latitude %></h5>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+  <div class="row mapRow">
+    <div class="col removeLeftPadding">
+      <div id="contactMap">
+
+      </div>
+    </div>
+    <div class="col">
+      <h3>Notes: </h3>
+      <%= @contact.notes  %>
+    </div>
+  </div>
+
+
+
+
+  <%= link_to "Edit", edit_contact_path(@contact) %>
+  <%= link_to "DELETE", @contact, method: :delete %>
+  <%= link_to "All Contacts", contacts_path %>
+
 
 </div>
-<%= link_to "Edit", edit_contact_path(@contact) %>
-<%= link_to "DELETE", @contact, method: :delete %>
-<%= link_to "All Contacts", contacts_path %>
+<%= binding.pry %>

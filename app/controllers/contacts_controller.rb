@@ -51,7 +51,7 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:first_name, :last_name, :alias, :phone_number,
       :email_address, :postal_address, :longitude,
       :latitude, :baptism_status, :gender, :birth_date,
-      :notes, :ecclesium_id)
+      :notes, :ecclesium_id, :avatar)
     end
 
   end
