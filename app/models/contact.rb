@@ -8,17 +8,19 @@ class Contact < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def full_name
-    "#{first_name} #{last_name}".strip
+    alias_string = self.alias.present? ? "\"#{self.alias}\"" : nil
+    [bro_or_sis, first_name, alias_string, last_name].compact.join(' ')
   end
-  def broOrSis
+
+  def bro_or_sis
     if gender == "Male"
       return "Brother"
 
-    else if gender == "Female"
+    elsif gender == "Female"
       return "Sister"
     end
   end
 
 
-end
+
 end
