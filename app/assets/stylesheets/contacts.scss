@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 
-#contactMap {
+#contact-map {
   width: 100%;
   height: 300px;
 }
@@ -22,20 +22,9 @@
   background-size: cover !important;
 }
 
-.contactDiv {
-  width: 100%;
-  height: 300px;
-  margin-top: 50px;
-  position: relative;
-}
-
 .contactInfoCol {
   padding-top: 30px;
   padding-left: 50px;
-}
-
-.centerText {
-  text-align: center;
 }
 
 .contactInfoRows {
@@ -48,17 +37,4 @@
 
 .removeLeftPadding {
   padding-left: 0px;
-}
-
-.profileName {
-  line-height: 300px;
-  padding-left: 19%;
-}
-
-.font24 {
-  font-size: 24px;
-}
-
-.width150 {
-  width: 150%;
 }
