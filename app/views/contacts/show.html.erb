@@ -5,69 +5,91 @@
   });
 </script>
 <% end %>
+<div class="container">
+
+
+
 <div class="contactDiv">
+  <div class="">
+
+
 
 
 <div class="profilPic"  style ="background: url(<%= @contact.avatar_url %>); background-position: center; background-repeat: no-repeat;
   background-size: cover;">
 
 </div>
-<h1><%= @contact.full_name %></h1>
+  </div>
+<h1 class="profileName"><%= @contact.full_name %></h1>
 </div>
 
-<div class="container">
+
   <div class="row">
   <div class="col-7">
     <div class="container-fluid">
       <div class="row">
       <div class="col-4">
 
-        <div class="row ">
-          <h5>Phone Number: </h5>
+        <div class="row font24">
+          Phone:
         </div>
-        <div class="row ">
-          <h5>Email: </h5>
+        <hr class = "width150"/>
+        <div class="row font24">
+          Email:
         </div>
-        <div class="row ">
-          <h5>Birth Date: </h5>
+        <hr class = "width150"/>
+        <div class="row font24">
+          Birthday:
         </div>
-        <div class="row ">
-          <h5>Ecclesia: </h5>
+        <hr class = "width150"/>
+        <div class="row font24">
+          Ecclesia:
         </div>
-        <div class="row ">
-          <h5>Address: </h5>
+        <hr class = "width150"/>
+        <div class="row font24">
+          Address:
         </div>
-        <div class="row ">
-          <h5>Address Coordinates: </h5>
+        <hr class = "width150"/>
+        <div class="row font24">
+          Coordinates:
         </div>
-        <div class="row ">
-          <h5>Notes: </h5>
+        <hr class = "width150"/>
+        <div class="row font24">
+          Notes:
         </div>
+
 
       </div>
       <div class="col-8">
 
-        <div class="row">
+        <div class="row font24">
           <%= @contact.phone_number %>
         </div>
-        <div class="row ">
+        <hr/>
+        <div class="row font24 ">
           <%= @contact.email_address %>
         </div>
-        <div class="row ">
+        <hr/>
+        <div class="row font24">
           <%= @contact.birth_date %>
         </div>
-        <div class="row ">
+        <hr/>
+        <div class="row font24">
           <%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %>
         </div>
-        <div class="row ">
+        <hr/>
+        <div class="row font24">
           <%= @contact.postal_address %>
         </div>
-        <div class="row ">
+        <hr/>
+        <div class="row font24">
           <%= @contact.longitude %>, <%= @contact.latitude %>
         </div>
-        <div class="row ">
+        <hr/>
+        <div class="row font24">
           <%= @contact.notes  %>
         </div>
+
       </div>
 </div>
     </div>

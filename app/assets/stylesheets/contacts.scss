@@ -15,7 +15,8 @@
   width: 200px;
   height: 200px;
   position: absolute;
-  top: 5%;
+  top: 15%;
+  left: -10%;
   border-radius: 50%;
 }
 
@@ -49,7 +50,11 @@
 }
 .profileName {
       line-height: 300px;
+      padding-left: 19%;
 }
-.font16 {
-  font-size: 16;
+.font24 {
+  font-size: 24px;
+}
+.width150 {
+  width: 150%;
 }
