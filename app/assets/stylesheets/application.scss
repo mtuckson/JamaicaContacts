@@ -1,35 +1,36 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "home";
+@import "contacts";
+@import "ecclesias";
+@import "logInPage";
 
- // Custom bootstrap variables must be set or imported *before* bootstrap.
- @import "bootstrap";
- @import "home.scss";
- @import "contacts.scss";
- @import "ecclesias.scss";
- @import "logInPage.scss";
+body{
+  font-family: "Optima";
+}
 
- body{
-   font-family: "Optima"
-
- }
- table {
-   font-size: 20px;
- }
+table {
+  font-size: 20px;
+}
 
 form {
-  font-size: 18px
+  font-size: 18px;
 }
+
 textarea.form-control {
-  height: 300px
+  height: 300px;
 }
 
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 3px solid #ccc;
-    margin: 1em 0;
-    margin-top: 50px;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid #ccc;
+  margin: 1em 0;
+  margin-top: 50px;
+  padding: 0;
 }
+
 .font20 {
-font-size: 20px
+  font-size: 20px;
 }
