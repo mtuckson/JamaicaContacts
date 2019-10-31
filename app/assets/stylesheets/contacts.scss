@@ -2,59 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-#contactMap {
+
+#contact-map {
   width: 100%;
   height: 300px;
 }
+
 #initMapContactEdit {
-    width: 600px;
-    height: 400px;
+  width: 600px;
+  height: 400px;
 }
 
-.profilPic {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 15%;
-  left: -10%;
-  border-radius: 50%;
-}
-
-.contactDiv {
-  width: 100%;
-  height: 300px;
-  margin-top: 50px;
-  position: relative;
-
-}
-
-.contactInfoCol {
-  padding-top: 30px;
-  padding-left: 50px;
-
-}
-.centerText {
-  text-align: center;
-}
-
-.contactInfoRows {
-  padding-top: 30px;
-}
-
-.mapRow {
-  width: 110%;
-}
-
-.removeLeftPadding {
-  padding-left: 0px;
-}
-.profileName {
-      line-height: 300px;
-      padding-left: 19%;
-}
-.font24 {
-  font-size: 24px;
-}
-.width150 {
-  width: 150%;
+.profile-pic {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 100px;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }

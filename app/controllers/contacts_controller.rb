@@ -1,35 +1,38 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
+
   def index
     @contacts = Contact.all.sort_by(&:full_name)
   end
+
   def show
     @contact = Contact.find(params[:id])
     @contactToJson = @contact.to_json.html_safe
-    if @contact.ecclesium_id
-      @ecclesium = Ecclesium.find(@contact.ecclesium_id)
-    else @ecclesium = Ecclesium.new
-      @ecclesium.name ="none"
-    end
+    @ecclesium = @contact.ecclesium
   end
+
   def new
     @contact = Contact.new
     @ecclesia = Ecclesium.all
   end
+
   def create
     @contact = Contact.new(contact_params)
     @contact.save
     redirect_to @contact
   end
+
   def edit
     @contact = Contact.find(params[:id])
     @ecclesia = Ecclesium.all.sort_by(&:name)
   end
+
   def update
     @contact = Contact.find(params[:id])
     @contact.update(contact_params)
     redirect_to @contact
   end
+
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
@@ -44,14 +47,14 @@ class ContactsController < ApplicationController
     redirect_to contacts_path
   end
 
-
-
   private
+
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :alias, :phone_number,
+    params.require(:contact).permit(
+      :first_name, :last_name, :alias, :phone_number,
       :email_address, :postal_address, :longitude,
       :latitude, :baptism_status, :gender, :birth_date,
-      :notes, :ecclesium_id, :avatar)
-    end
-
+      :notes, :ecclesium_id, :avatar
+    )
   end
+end
