@@ -12,18 +12,19 @@
 }
 
 .profilPic {
-  width: 100%;
-  height: 90%;
+  width: 200px;
+  height: 200px;
   position: absolute;
   top: 5%;
+  border-radius: 50%;
 }
 
-.contactInfoDiv {
-  width: 110%;
+.contactDiv {
+  width: 100%;
   height: 300px;
   margin-top: 50px;
   position: relative;
-  background-color: #d3d3d3;
+
 }
 
 .contactInfoCol {
@@ -45,4 +46,10 @@
 
 .removeLeftPadding {
   padding-left: 0px;
+}
+.profileName {
+      line-height: 300px;
+}
+.font16 {
+  font-size: 16;
 }

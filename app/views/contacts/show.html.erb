@@ -5,88 +5,78 @@
   });
 </script>
 <% end %>
+<div class="contactDiv">
+
+
+<div class="profilPic"  style ="background: url(<%= @contact.avatar_url %>); background-position: center; background-repeat: no-repeat;
+  background-size: cover;">
+
+</div>
+<h1><%= @contact.full_name %></h1>
+</div>
 
 <div class="container">
+  <div class="row">
+  <div class="col-7">
+    <div class="container-fluid">
+      <div class="row">
+      <div class="col-4">
 
-
-  <div class="contactInfoDiv row">
-
-    <div class="col">
-
-
-      <div class="profilPic"  style ="background: url(<%= @contact.avatar_url %>); background-position: center; background-repeat: no-repeat;
-        background-size: cover;">
+        <div class="row ">
+          <h5>Phone Number: </h5>
+        </div>
+        <div class="row ">
+          <h5>Email: </h5>
+        </div>
+        <div class="row ">
+          <h5>Birth Date: </h5>
+        </div>
+        <div class="row ">
+          <h5>Ecclesia: </h5>
+        </div>
+        <div class="row ">
+          <h5>Address: </h5>
+        </div>
+        <div class="row ">
+          <h5>Address Coordinates: </h5>
+        </div>
+        <div class="row ">
+          <h5>Notes: </h5>
+        </div>
 
       </div>
-    </div>
-    <div class="col-9 contactInfoCol">
+      <div class="col-8">
 
-      <h3 class="centerText"> <%= @contact.full_name %></h3>
-
-      <div class="row contactInfoRows">
-        <div class="col">
-          <h5>Email: <%= @contact.email_address %></h5>
+        <div class="row">
+          <%= @contact.phone_number %>
         </div>
-        <div class="col">
-          <h5>Phone Number: <%= @contact.phone_number %></h5>
+        <div class="row ">
+          <%= @contact.email_address %>
         </div>
-        <div class="col">
-          <h5>Birth Date: <%= @contact.birth_date %></h5>
+        <div class="row ">
+          <%= @contact.birth_date %>
         </div>
-
+        <div class="row ">
+          <%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %>
+        </div>
+        <div class="row ">
+          <%= @contact.postal_address %>
+        </div>
+        <div class="row ">
+          <%= @contact.longitude %>, <%= @contact.latitude %>
+        </div>
+        <div class="row ">
+          <%= @contact.notes  %>
+        </div>
       </div>
-
-      <div class="row contactInfoRows">
-        <div class="col">
-          <h5>Address: <%= @contact.postal_address %></h5>
-
-        </div>
-        <div class="col-8">
-          <div class="row ">
-
-            <div class="col">
-              <% if @ecclesium.name =="none" %>
-              <h5>Ecclesia: <%= @ecclesium.name %></h5>
-              <% else %>
-              <h5>Ecclesia: <%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %></h5>
-              <% end %>
-            </div>
-
-          </div>
-          <div class="row contactInfoRows">
-            <div class="col">
-              <h5>Location Coordinates: <%= @contact.longitude %>, <%= @contact.latitude %></h5>
-            </div>
-
-          </div>
-        </div>
-
-
-      </div>
-
-
-
+</div>
     </div>
 
   </div>
-  <div class="row mapRow">
-    <div class="col removeLeftPadding">
-      <div id="contactMap">
+  <div class="col-5">
+    <div id="contactMap">
 
-      </div>
-    </div>
-    <div class="col">
-      <h3>Notes: </h3>
-      <%= @contact.notes  %>
     </div>
   </div>
-
-
-
-
-  <%= link_to "Edit", edit_contact_path(@contact) %>
-  <%= link_to "DELETE", @contact, method: :delete %>
-  <%= link_to "All Contacts", contacts_path %>
-
-
+</div>
 </div>
