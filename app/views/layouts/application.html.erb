@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JamaicaContacts</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>JamaicaContacts</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAq7YSMMp-zWSRYBhmX59kFXb7yrw_aaOE' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:head_tags) %>
+  </head>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAq7YSMMp-zWSRYBhmX59kFXb7yrw_aaOE' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= yield(:head_tags) %>
-</head>
+  <body>
+    <%= render 'layouts/navbar'%>
 
+    <%= yield %>
 
-<body>
-  <%= render 'layouts/navbar'%>
-
-  <%= yield %>
-  <%= render "layouts/footer" %>
-</body>
+    <%= render "layouts/footer" %>
+  </body>
 </html>
