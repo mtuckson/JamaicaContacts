@@ -20,7 +20,4 @@ class Contact < ApplicationRecord
       return "Sister"
     end
   end
-
-
-
 end
