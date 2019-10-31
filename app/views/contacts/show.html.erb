@@ -5,100 +5,52 @@
   });
 </script>
 <% end %>
+
 <div class="container">
-
-
-
-<div class="contactDiv">
-  <div class="">
-
-
-
-
-<div class="profilPic"  style ="background: url(<%= @contact.avatar_url %>); background-position: center; background-repeat: no-repeat;
-  background-size: cover;">
-
-</div>
-  </div>
-<h1 class="profileName"><%= @contact.full_name %></h1>
-</div>
-
-
   <div class="row">
-  <div class="col-7">
-    <div class="container-fluid">
+    <div class="col-7">
+
+      <div class="row align-items-center mt-2">
+        <div class="col-4">
+          <div class="profile-pic"  style ="background: url(<%= @contact.avatar_url %>);"></div>
+        </div>
+        <div class="col-8">
+          <h1><%= @contact.full_name %></h1>
+        </div>
+      </div>
+
       <div class="row">
-      <div class="col-4">
-
-        <div class="row font24">
-          Phone:
+        <div class="col-12">
+          <div class="list-group list-group-flush">
+            <div class="list-group-item">
+              Phone: <%= @contact.phone_number %>
+            </div>
+            <div class="list-group-item">
+              Email: <%= @contact.email_address %>
+            </div>
+            <div class="list-group-item">
+              Birthday: <%= @contact.birth_date %>
+            </div>
+            <div class="list-group-item">
+              Ecclesia: <%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %>
+            </div>
+            <div class="list-group-item">
+              Address: <%= @contact.postal_address %>
+            </div>
+            <div class="list-group-item">
+              Coordinates: <%= @contact.latitude %>, <%= @contact.longitude %>
+            </div>
+            <div class="list-group-item">
+              Notes: <%= @contact.notes %>
+            </div>
+          </div>
         </div>
-        <hr class = "width150"/>
-        <div class="row font24">
-          Email:
-        </div>
-        <hr class = "width150"/>
-        <div class="row font24">
-          Birthday:
-        </div>
-        <hr class = "width150"/>
-        <div class="row font24">
-          Ecclesia:
-        </div>
-        <hr class = "width150"/>
-        <div class="row font24">
-          Address:
-        </div>
-        <hr class = "width150"/>
-        <div class="row font24">
-          Coordinates:
-        </div>
-        <hr class = "width150"/>
-        <div class="row font24">
-          Notes:
-        </div>
-
-
       </div>
-      <div class="col-8">
+    </div>
 
-        <div class="row font24">
-          <%= @contact.phone_number %>
-        </div>
-        <hr/>
-        <div class="row font24 ">
-          <%= @contact.email_address %>
-        </div>
-        <hr/>
-        <div class="row font24">
-          <%= @contact.birth_date %>
-        </div>
-        <hr/>
-        <div class="row font24">
-          <%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %>
-        </div>
-        <hr/>
-        <div class="row font24">
-          <%= @contact.postal_address %>
-        </div>
-        <hr/>
-        <div class="row font24">
-          <%= @contact.longitude %>, <%= @contact.latitude %>
-        </div>
-        <hr/>
-        <div class="row font24">
-          <%= @contact.notes  %>
-        </div>
-
-      </div>
-</div>
+    <div class="col-5 mt-4">
+      <div id="contactMap"></div>
     </div>
 
   </div>
-  <div class="col-5">
-    <div id="contactMap">
-
-    </div>
-  </div>
-</div>
 </div>
