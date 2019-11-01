@@ -1,9 +1,11 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "variables";
 @import "bootstrap";
 @import "home";
 @import "contacts";
 @import "ecclesias";
 @import "logInPage";
+
 
 body{
   font-family: "Optima";

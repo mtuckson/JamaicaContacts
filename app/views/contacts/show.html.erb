@@ -43,7 +43,11 @@
                 Birthday:
               </div>
               <div class="col-9">
+                <% if @contact.birth_date.blank? %>
+                -
+                <% else %>
                 <%= @contact.birth_date %>
+                <% end %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -52,9 +56,9 @@
               </div>
               <div class="col-9">
                 <% if @ecclesium.name =="none" %>
-                <th><%= @ecclesium.name %></th>
+                <%= @ecclesium.name %>
                 <% else %>
-                <td><%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %></td>
+                <%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %>
                 <% end %>
               </div>
             </div>

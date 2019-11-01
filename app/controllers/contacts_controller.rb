@@ -57,31 +57,34 @@ class ContactsController < ApplicationController
 
     def fill_the_blanks (contact)
 
-        if contact.phone_number.blank?
-          contact.phone_number = "-"
-        end
+      if contact.phone_number.blank?
+        contact.phone_number = "-"
+      end
 
-        if contact.email_address.blank?
-          contact.email_address = "-"
-        end
+      if contact.email_address.blank?
+        contact.email_address = "-"
+      end
 
-        if contact.postal_address.blank?
-          contact.postal_address = "-"
-        end
+      if contact.postal_address.blank?
+        contact.postal_address = "-"
+      end
 
-        if contact.latitude.blank?
-          contact.latitude = "-"
-        end
+      if contact.latitude.blank?
+        contact.latitude = "-"
+      end
 
-        if contact.birth_date.blank?
-          contact.birth_date = "-"
-        end
+      if contact.notes.blank?
+        contact.notes = "-"
+      end
 
-        if contact.notes.blank?
-          contact.notes = "-"
-        end
+      if contact.latitude == 51.5
+        contact.latitude = 0
+      end
 
-        return contact
+      if contact.longitude == -0.125
+        contact.longitude = 0
+      end
+      return contact
 
     end
 
