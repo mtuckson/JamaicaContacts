@@ -4,7 +4,8 @@ class ContactsController < ApplicationController
     @contacts = Contact.all.sort_by(&:full_name)
   end
   def show
-    @contact = Contact.find(params[:id])
+    @contact_with_blanks = Contact.find(params[:id])
+    @contact = fill_the_blanks(@contact_with_blanks)
     @contactToJson = @contact.to_json.html_safe
     if @contact.ecclesium_id
       @ecclesium = Ecclesium.find(@contact.ecclesium_id)
@@ -52,6 +53,36 @@ class ContactsController < ApplicationController
       :email_address, :postal_address, :longitude,
       :latitude, :baptism_status, :gender, :birth_date,
       :notes, :ecclesium_id, :avatar)
+    end
+
+    def fill_the_blanks (contact)
+
+        if contact.phone_number.blank?
+          contact.phone_number = "-"
+        end
+
+        if contact.email_address.blank?
+          contact.email_address = "-"
+        end
+
+        if contact.postal_address.blank?
+          contact.postal_address = "-"
+        end
+
+        if contact.latitude.blank?
+          contact.latitude = "-"
+        end
+
+        if contact.birth_date.blank?
+          contact.birth_date = "-"
+        end
+
+        if contact.notes.blank?
+          contact.notes = "-"
+        end
+
+        return contact
+
     end
 
   end

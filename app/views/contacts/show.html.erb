@@ -51,7 +51,11 @@
                 Ecclesia:
               </div>
               <div class="col-9">
-                <%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %>
+                <% if @ecclesium.name =="none" %>
+                <th><%= @ecclesium.name %></th>
+                <% else %>
+                <td><%= link_to @ecclesium.name, ecclesium_path(@ecclesium) %></td>
+                <% end %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -83,8 +87,8 @@
       </div>
     </div>
 
-    <div class="col-5 mt-4">
-      <div id="contact-map"></div>
+    <div class="col-5">
+      <div id="contact-map" class = "ml-4"></div>
     </div>
 
   </div>
