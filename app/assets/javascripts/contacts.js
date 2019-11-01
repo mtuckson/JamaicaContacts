@@ -4,7 +4,7 @@ function initMapContact(contact) {
     center: myCoords,
     zoom: 14
     };
-    var map = new google.maps.Map(document.getElementById('contactMap'), mapOptions);
+    var map = new google.maps.Map(document.getElementById('contact-map'), mapOptions);
 
     var marker = new google.maps.Marker({
     position: myCoords,
