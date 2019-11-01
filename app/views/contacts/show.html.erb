@@ -12,7 +12,7 @@
 
       <div class="row mt-2 mb-3">
         <div class="col-12 d-flex align-items-center">
-          <div class="profile-pic"  style ="background: url(<%= @contact.avatar_url %>);"></div>
+          <div class="profile-pic"  style ="background: url(<%= avatar_url(@contact) %>);"></div>
           <h1 class="ml-3">
             <%= @contact.full_name %>
           </h1>
