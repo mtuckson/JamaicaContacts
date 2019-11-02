@@ -5,6 +5,14 @@ module ContactsHelper
     contact.avatar_url
   end
 
+  def phone_description_options
+    descriptions = Contact.pluck(:phone_description) +
+                   Contact.pluck(:second_phone_description) +
+                   Contact.pluck(:third_phone_description)
+
+    descriptions.uniq
+  end
+
   def display_contact_second_phone (contact)
     return "-" if contact.second_phone.blank?
 

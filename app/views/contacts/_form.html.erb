@@ -52,9 +52,8 @@
           </div>
 
           <datalist id="descriptions">
-            <% descriptions = (Contact.pluck(:phone_description) + Contact.pluck(:second_phone_description) + Contact.pluck(:third_phone_description)).uniq %>
-            <% descriptions.each do |description| %>
-              <option><%= description %></option>
+            <% phone_description_options.each do |option| %>
+              <option><%= option %></option>
             <% end %>
           </datalist>
         </div>
