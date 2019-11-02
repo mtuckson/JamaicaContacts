@@ -7,7 +7,7 @@ class Contact < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  def is_baptized?
+  def baptized?
     baptism_status == true
   end
 
@@ -17,7 +17,7 @@ class Contact < ApplicationRecord
   end
 
   def bro_or_sis
-    return nil unless is_baptized?
+    return nil unless baptized?
     Male? ? 'Bro.' : 'Sis.'
   end
 end
