@@ -60,3 +60,21 @@ function initMapContactEdit() {
         map.panTo(marker.getPosition());
     });
 }
+
+// workaround so that Datalist will show all available options when clicking phone dropdowns
+$(document).ready(function() {
+  var oldValue = '';
+  $('#phone input').on('click', function() {
+    $input = $(this)
+
+    // save the old value
+    oldValue = $input.val();
+
+    // blank out the value
+    $input.val('');
+
+    // after 1 milisecond put the value back in. this tricks datalist into showing us all
+    // available options without having to backspace the whole input
+    setTimeout(function() { $input.val(oldValue); }, 1)
+  });
+})
