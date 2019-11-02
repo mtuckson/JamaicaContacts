@@ -68,7 +68,6 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    bootstrap-combobox (1.2.6)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -250,7 +249,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3.1)
-  bootstrap-combobox (~> 1.2, >= 1.2.6)
   byebug
   capybara (>= 2.15)
   carrierwave (~> 2.0)

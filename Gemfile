@@ -21,7 +21,6 @@ gem 'simple_form'
 gem 'carrierwave', '~> 2.0'
 
 gem 'devise'
-gem 'bootstrap-combobox', '~> 1.2', '>= 1.2.6'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
