@@ -14,9 +14,23 @@
     <%= f.input :last_name, wrapper_html: { class: 'col' }  %>
   </div>
   <div class="row">
+    <select class="form-control col phone-description-dropdown">
+      <option selected="selected"></option>
+      <option>white</option>
+      <option>purple</option>
+    </select>
+
     <%= f.input :phone_number, wrapper_html: { class: 'col' } %>
+    <%= f.input :second_phone_description,  label: 'Phone Type', wrapper_html: { class: 'col' } %>
+    <%= f.input :second_phone, wrapper_html: { class: 'col' } %>
+    <%= f.input :third_phone_description,  label: 'Phone Type', wrapper_html: { class: 'col' } %>
+    <%= f.input :third_phone, wrapper_html: { class: 'col' } %>
+
+  </div>
+  <div class="row">
     <%= f.input :email_address, wrapper_html: { class: 'col' } %>
     <%= f.input :postal_address, wrapper_html: { class: 'col' } %>
+
   </div>
   <div class="row">
     <%= f.input :longitude, wrapper_html: { class: 'col' } %>

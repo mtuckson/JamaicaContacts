@@ -60,3 +60,10 @@ function initMapContactEdit() {
         map.panTo(marker.getPosition());
     });
 }
+$(document).ready(function() {
+    $('.phone-description-dropdown').select2();
+});
+
+$(".phone-description-dropdown").select2({
+  tags: true
+});

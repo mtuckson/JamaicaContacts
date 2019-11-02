@@ -62,19 +62,7 @@
                 <%=  display_ecclesium_notes(@ecclesium)%>
               </div>
             </div>
-            <div class="row list-group-item d-flex">
-              <div class="col-3 ">
 
-              </div>
-              <div class="col-9">
-                <div class="row">
-                  <%= button_to "Edit", edit_ecclesium_path(@ecclesium), method: :get, class: "mr-3 btn btn-secondary"%>
-                  <%= button_to "Delete", @ecclesium, method: :delete, class: "btn btn-danger" %>
-                </div>
-
-
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -85,4 +73,37 @@
     </div>
 
   </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+
+
+      <h2>Members</h2>
+      </div>
+      <div class="list-group list-group-flush"">
+
+        <%@contacts.each do |contact| %>
+        <div class="row list-group-item d-flex">
+          <div class="col-3  text-right">
+            <%=link_to contact.full_name, contact %>
+          </div>
+          <div class="col-9">
+            <%= display_contact_phone_number(contact)  %>
+            <%= display_contact_second_phone(contact)  %>
+            <%= display_contact_third_phone(contact)  %>
+          </div>
+        </div>
+
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
 </div>

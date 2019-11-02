@@ -5,10 +5,22 @@ module ContactsHelper
     contact.avatar_url
   end
 
+  def display_contact_second_phone (contact)
+    return "-" if contact.second_phone.blank?
+
+    contact.second_phone
+  end
+
+  def display_contact_third_phone (contact)
+    return "-" if contact.third_phone.blank?
+
+    contact.third_phone
+  end
+
   def display_contact_phone_number (contact)
     return "-" if contact.phone_number.blank?
 
-    contact.phone_number
+    "#{contact.phone_description} - #{contact.phone_number}"
   end
 
   def display_contact_email_address (contact)
