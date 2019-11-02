@@ -62,7 +62,7 @@ function initMapEcclesiaEdit() {
   var myCoords = new google.maps.LatLng(lat, lng);
   var mapOptions = {
     center: myCoords,
-    zoom: 14
+    zoom: 9
   };
   var map = new google.maps.Map(document.getElementById('initMapEcclesiaEdit'), mapOptions);
   var marker = new google.maps.Marker({

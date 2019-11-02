@@ -31,7 +31,7 @@
                 Address:
               </div>
               <div class="col-9">
-                <%= @ecclesium.postal_address || "-"  %>
+                <%= display_ecclesium_postal_address(@ecclesium)  %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -51,7 +51,7 @@
                 Coordinates:
               </div>
               <div class="col-9">
-                <%= @ecclesium.latitude %>, <%= @ecclesium.longitude %>
+                <%= display_ecclesium_coordinates(@ecclesium)%>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -59,7 +59,7 @@
                 Notes:
               </div>
               <div class="col-9">
-                <%= @ecclesium.notes || "-" %>
+                <%=  display_ecclesium_notes(@ecclesium)%>
               </div>
             </div>
             <div class="row list-group-item d-flex">
