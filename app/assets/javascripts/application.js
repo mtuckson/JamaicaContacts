@@ -1,7 +1,6 @@
-//= require_tree
 //= require jquery3
 //= require popper
 //= require bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require select2
+//= require_tree
