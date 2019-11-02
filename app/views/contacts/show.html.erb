@@ -21,7 +21,7 @@
       </div>
       <div class="col-7">
 
-    
+
 
       <div class="row">
         <div class="col-12">
@@ -31,7 +31,7 @@
                 Phone:
               </div>
               <div class="col-9">
-                <%= @contact.phone_number %>
+                <%= display_contact_phone_number(@contact) %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -39,7 +39,7 @@
                 Email:
               </div>
               <div class="col-9">
-                <%= @contact.email_address %>
+                <%= display_contact_email_address(@contact) %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -47,11 +47,7 @@
                 Birthday:
               </div>
               <div class="col-9">
-                <% if @contact.birth_date.blank? %>
-                -
-                <% else %>
-                <%= @contact.birth_date %>
-                <% end %>
+                <%= display_contact_birth_date(@contact)  %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -71,7 +67,7 @@
                 Address:
               </div>
               <div class="col-9">
-                <%= @contact.postal_address %>
+                <%= display_contact_postal_address(@contact)   %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -79,7 +75,7 @@
                 Coordinates:
               </div>
               <div class="col-9">
-                <%= @contact.latitude %>, <%= @contact.longitude %>
+                <%= display_contact_coordinates(@contact) %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
@@ -87,7 +83,18 @@
                 Notes:
               </div>
               <div class="col-9">
-                <%= @contact.notes %>
+                <%= display_contact_notes(@contact)   %>
+              </div>
+            </div>
+            <div class="row list-group-item d-flex">
+              <div class="col-3 ">
+
+              </div>
+              <div class="col-9">
+                <div class="row">
+                  <%= button_to "Edit", edit_contact_path(@contact), method: :get, class: "mr-3 btn btn-secondary" %>
+                  <%= button_to "Delete", @contact, method: :delete, class: "btn btn-danger" %>
+                </div>
               </div>
             </div>
           </div>
@@ -96,7 +103,7 @@
     </div>
 
     <div class="col-5">
-      <div id="contact-map" class = "ml-4"></div>
+      <div id="contact-map" class = "ml-4 <%= "greyOutImage" if display_contact_coordinates(@contact) == "Unknown Location" %>"></div>
     </div>
 
   </div>

@@ -67,7 +67,8 @@ class EcclesiaController < ApplicationController
 
   private
   def ecclesia_params
-    params.require(:ecclesium).permit(:name, :postal_address, :longitude, :latitude, :notes, :recording_brother_id)
+    params.require(:ecclesium).permit(:name, :postal_address, :longitude, :latitude, :notes, :recording_brother_id,
+    :avatar)
 
 
   end

@@ -4,4 +4,6 @@ class Ecclesium < ApplicationRecord
 
   geocoded_by :postal_address
   after_validation :geocode, if: :postal_address_changed?
+
+  mount_uploader :avatar, AvatarUploader
 end

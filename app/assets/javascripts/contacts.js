@@ -19,15 +19,14 @@ function initMapContactEdit() {
 
     // if not defined create default position
     if (!lat || !lng){
-        lat=51.5;
-        lng=-0.125;
-        document.getElementById('contact_latitude').value = lat;
-        document.getElementById('contact_longitude').value = lng;
+        lat=18.1;
+        lng=-77.3;
+
     }
     var myCoords = new google.maps.LatLng(lat, lng);
     var mapOptions = {
     center: myCoords,
-    zoom: 14
+    zoom: 8
     };
     var map = new google.maps.Map(document.getElementById('initMapContactEdit'), mapOptions);
     var marker = new google.maps.Marker({

@@ -6,68 +6,83 @@
     </script>
 <% end %>
 
-<h1> Ecclesia Information: </h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address </th>
-      <th>Longitude</th>
-      <th>Latitude</th>
-      <th>Recording Brother</th>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12">
+
+      <div class="row mt-2 mb-3">
+        <div class="col-12 d-flex align-items-center">
+          <div class="profile-pic"  style ="background: url(<%= avatar_url(@ecclesium) %>);"></div>
+          <h1 class="ml-5">
+            <%= @ecclesium.name %>
+          </h1>
+        </div>
+      </div>
+      </div>
+      <div class="col-7">
 
 
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%= @ecclesium.name %></td>
-        <td><%= @ecclesium.postal_address %></td>
-        <td><%= @ecclesium.longitude %></td>
-        <td><%= @ecclesium.latitude %></td>
-        <% if @recording_brother.first_name =="none" %>
-        <td><%= @recording_brother.first_name %></td>
-        <% else %>
-        <td><%= link_to @recording_brother.full_name, contact_path(@recording_brother) %></td>
-        <% end %>
 
-      </tr>
-  </tbody>
-</table>
-<h3>Notes: </h3>
-<p><%= @ecclesium.notes  %></p>
+      <div class="row">
+        <div class="col-12">
+          <div class="list-group list-group-flush">
+            <div class="row list-group-item d-flex">
+              <div class="col-3 text-muted text-right">
+                Address:
+              </div>
+              <div class="col-9">
+                <%= @ecclesium.postal_address || "-"  %>
+              </div>
+            </div>
+            <div class="row list-group-item d-flex">
+              <div class="col-3 text-muted text-right">
+                Rec Brother:
+              </div>
+              <div class="col-9">
+                <% if @recording_brother.first_name =="none" %>
+                <%= @recording_brother.first_name %>
+                <% else %>
+                <%= link_to @recording_brother.full_name, contact_path(@recording_brother) %>
+                <% end %>
+              </div>
+            </div>
+            <div class="row list-group-item d-flex">
+              <div class="col-3 text-muted text-right">
+                Coordinates:
+              </div>
+              <div class="col-9">
+                <%= @ecclesium.latitude %>, <%= @ecclesium.longitude %>
+              </div>
+            </div>
+            <div class="row list-group-item d-flex">
+              <div class="col-3 text-muted text-right">
+                Notes:
+              </div>
+              <div class="col-9">
+                <%= @ecclesium.notes || "-" %>
+              </div>
+            </div>
+            <div class="row list-group-item d-flex">
+              <div class="col-3 ">
 
-<h3>Members List: </h3>
+              </div>
+              <div class="col-9">
+                <div class="row">
+                  <%= button_to "Edit", edit_ecclesium_path(@ecclesium), method: :get, class: "mr-3 btn btn-secondary"%>
+                  <%= button_to "Delete", @ecclesium, method: :delete, class: "btn btn-danger" %>
+                </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>First</th>
-      <th>Last</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Address</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><img src='http://maps.google.com/mapfiles/ms/icons/red-dot.png' alt="red marker"></td>
-        <td><%=link_to contact.first_name, contact %></td>
-        <td><%= link_to contact.last_name, contact %></td>
-        <td><%= contact.email_address %></td>
-        <td><%= contact.phone_number %></td>
-        <td><%= contact.postal_address %></td>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div id="map">
+    <div class="col-5">
+      <div id="map" class = "ml-4"></div>
+    </div>
 
+  </div>
 </div>
-<%= link_to "Edit", edit_ecclesium_path(@ecclesium) %>
-<%= link_to "DELETE", @ecclesium, method: :delete %>
-<%= link_to "All Ecclesias", ecclesia_path %>
