@@ -55,10 +55,9 @@ function initMapEcclesiaEdit() {
 
   // if not defined create default position
   if (!lat || !lng){
-    lat=51.5;
-    lng=-0.125;
-    document.getElementById('ecclesium_latitude').value = lat;
-    document.getElementById('ecclesium_longitude').value = lng;
+    lat=18.1;
+    lng=-77.3;
+
   }
   var myCoords = new google.maps.LatLng(lat, lng);
   var mapOptions = {
