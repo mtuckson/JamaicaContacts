@@ -61,9 +61,18 @@ function initMapContactEdit() {
     });
 }
 $(document).ready(function() {
-    $('.phone-description-dropdown').select2();
-});
+  var oldValue = '';
+  $('#phone input').on('click', function() {
+    $input = $(this)
 
-$(".phone-description-dropdown").select2({
-  tags: true
-});
+    // save the old value
+    oldValue = $input.val();
+
+    // blank out the value
+    $input.val('');
+
+    // after 1 milisecond put the value back in. this tricks datalist into showing us all
+    // available options without having to backspace the whole input
+    setTimeout(function() { $input.val(oldValue); }, 1)
+  });
+})

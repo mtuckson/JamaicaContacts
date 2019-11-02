@@ -1,59 +1,128 @@
 <% provide :head_tags do %>
-    <meta name='turbolinks-visit-control' content='reload'>
-    <script>
-        document.addEventListener("DOMContentLoaded", initMapContactEdit);
-    </script>
+<meta name='turbolinks-visit-control' content='reload'>
+<script>
+  document.addEventListener("DOMContentLoaded", initMapContactEdit);
+</script>
 <% end %>
-<%= simple_form_for contact do |f| %>
+<%= form_for contact do |f| %>
 <div class="container">
 
+  <div class="row">
+    <div class="form-group col">
+      <%= f.label :first_name %>:
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="form-group col">
+      <%= f.label :alias %>:
+      <%= f.text_field :alias %>
+    </div>
+    <div class="form-group col">
+      <%= f.label :last_name %>:
+      <%= f.text_field :last_name %>
+    </div>
+  </div>
 
   <div class="row">
-    <%= f.input :first_name, wrapper_html: { class: 'col' } %>
-    <%= f.input :alias, wrapper_html: { class: 'col' } %>
-    <%= f.input :last_name, wrapper_html: { class: 'col' }  %>
+    <div id="phone"  class="form-group col ">
+      <%= f.label :phone_description, "Phone type" %>:
+      <%= f.text_field :phone_description, list: "descriptions" %>
+ <datalist id="descriptions">
+   <%phone_descriptions.each do |description| %>
+   <option value="<%= description %>">
+     <% end %>
+
+ </datalist>
+    </div>
+    <div class="form-group col">
+      <%= f.label :phone_number %>:
+      <%= f.text_field :phone_number %>
+    </div>
   </div>
+
   <div class="row">
-    <select class="form-control col phone-description-dropdown">
-      <option selected="selected"></option>
-      <option>white</option>
-      <option>purple</option>
-    </select>
-
-    <%= f.input :phone_number, wrapper_html: { class: 'col' } %>
-    <%= f.input :second_phone_description,  label: 'Phone Type', wrapper_html: { class: 'col' } %>
-    <%= f.input :second_phone, wrapper_html: { class: 'col' } %>
-    <%= f.input :third_phone_description,  label: 'Phone Type', wrapper_html: { class: 'col' } %>
-    <%= f.input :third_phone, wrapper_html: { class: 'col' } %>
-
+    <div  id="phone" class="form-group col">
+      <%= f.label :second_phone_description, "Phone type" %>:
+      <%= f.text_field :second_phone_description, list: "descriptions" %>
+    </div>
+    <div class="form-group col">
+      <%= f.label :second_phone %>:
+      <%= f.text_field :second_phone %>
+    </div>
   </div>
+
   <div class="row">
-    <%= f.input :email_address, wrapper_html: { class: 'col' } %>
-    <%= f.input :postal_address, wrapper_html: { class: 'col' } %>
-
+    <div  id="phone" class="form-group col">
+      <%= f.label :third_phone_description, "Phone type" %>:
+      <%= f.text_field :third_phone_description, list: "descriptions" %>
+    </div>
+    <div class="form-group col">
+      <%= f.label :third_phone %>:
+      <%= f.text_field :third_phone %>
+    </div>
   </div>
+
+
+
   <div class="row">
-    <%= f.input :longitude, wrapper_html: { class: 'col' } %>
-    <%= f.input :latitude, wrapper_html: { class: 'col' } %>
-    <%= f.input :baptism_status,     as: :radio_buttons, wrapper_html: { class: 'col' }  %>
-    <%= f.input :gender, as: :radio_buttons, collection: Contact.genders,
-                label_method: :second, value_method: :first,wrapper_html: { class: 'col' }  %>
-
-
+    <div class="form-group col">
+      <%= f.label :email_address %>:
+      <%= f.text_field :email_address %>
+    </div>
+    <div class="form-group col">
+      <%= f.label :postal_address %>:
+      <%= f.text_field :postal_address %>
+    </div>
   </div>
+
   <div class="row">
-    <%= f.input :birth_date, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year,
-                              use_month_numbers: true,
-                               prompt: { day: 'Select day', month: 'Select month', year: 'Select year' },
-                              order: [:day, :month, :year],
-                               wrapper_html: { class: 'col' } %>
-     <%= f.input :ecclesium_id, collection: ecclesia, wrapper_html: { class: 'col' }%>
-     <%= f.input :avatar,  label: 'Profil Pic', wrapper_html: { class: 'col' } %>
-  </div>
-  <%= f.input :notes, input_html: {class: 'notes'} %>
+    <div class="form-group col">
+      <%= f.label :latitude %>:
+      <%= f.number_field :latitude, id: 'contact_latitude' %>
+    </div>
+    <div class="form-group col">
+      <%= f.label :longitude %>:
+      <%= f.number_field :longitude, id: 'contact_longitude' %>
+    </div>
+      </div>
+      <div class="row">
+        <div class="form-group col">
+            <%= f.label :baptism_status, "Baptized" %>:<br />
+          <%= f.radio_button :baptism_status, true %> yes<br />
+             <%= f.radio_button :baptism_status, false %> no <br />
 
+        </div>
+        <div class="form-group col">
+            <%= f.label :gender, "Gender" %>:<br />
+          <%= f.radio_button :gender, "Male" %> Male<br />
+             <%= f.radio_button :gender, "Female" %> Female<br />
 
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col">
+          <%= f.label :birth_date %>:
+          <%= f.date_field :birth_date %>
+        </div>
+        <div class="form-group col">
+          <%= f.label :ecclesium_id, "Ecclesia" %>:
+        <%=collection_select(:contact, :ecclesium_id, ecclesia, :id, :name, prompt: true) %>
+
+        </div>
+
+          </div>
+          <div class="row">
+            <div class="form-group col">
+                <%= f.label :avatar, "Profile Pic" %>
+                <%= f.file_field :avatar %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+                <%= f.label :notes, "Notes: " %>
+                <%= f.text_area :notes, class: 'notes' %>
+            </div>
+          </div>
 
 
 <p>

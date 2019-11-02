@@ -80,7 +80,6 @@
     <div class="col-12">
       <div class="row">
 
-
       <h2>Members</h2>
       </div>
       <div class="list-group list-group-flush"">
@@ -91,9 +90,26 @@
             <%=link_to contact.full_name, contact %>
           </div>
           <div class="col-9">
-            <%= display_contact_phone_number(contact)  %>
-            <%= display_contact_second_phone(contact)  %>
-            <%= display_contact_third_phone(contact)  %>
+            <% if contact.phone_number.blank? == false %>
+            <div class="row">
+              <%= display_contact_phone_number(contact)  %>
+            </div>
+            <% else %>
+            -
+            <% end %>
+            <% if contact.second_phone.blank? == false %>
+            <div class="row">
+              <%= display_contact_second_phone(contact)  %>
+            </div>
+            <% end %>
+            <% if contact.third_phone.blank? == false %>
+            <div class="row">
+              <%= display_contact_third_phone(contact)  %>
+            </div>
+            <% end %>
+
+
+
           </div>
         </div>
 
