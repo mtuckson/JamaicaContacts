@@ -5,7 +5,8 @@
 @import "contacts";
 @import "ecclesias";
 @import "logInPage";
-
+@import "select2";
+@import "select2-bootstrap";
 
 body{
   font-family: "Optima";
@@ -39,4 +40,7 @@ hr {
 
 .font20 {
   font-size: 20px;
+}
+.hidden {
+  display: none;
 }

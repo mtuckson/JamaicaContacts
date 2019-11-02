@@ -28,10 +28,26 @@
           <div class="list-group list-group-flush">
             <div class="row list-group-item d-flex">
               <div class="col-3 text-muted text-right">
-                Phone:
+                Primary Phone:
               </div>
               <div class="col-9">
                 <%= display_contact_phone_number(@contact) %>
+              </div>
+            </div>
+            <div class="row list-group-item d-flex">
+              <div class="col-3 text-muted text-right">
+                Second Phone:
+              </div>
+              <div class="col-9">
+                <%= display_contact_second_phone(@contact) %>
+              </div>
+            </div>
+            <div class="row list-group-item d-flex">
+              <div class="col-3 text-muted text-right">
+                 Third Phone:
+              </div>
+              <div class="col-9">
+                <%= display_contact_third_phone(@contact) %>
               </div>
             </div>
             <div class="row list-group-item d-flex">

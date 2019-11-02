@@ -5,10 +5,22 @@ module ContactsHelper
     contact.avatar_url
   end
 
+  def display_contact_second_phone (contact)
+    return "-" if contact.second_phone.blank?
+
+    "#{display_contact_second_phone_description(contact)}#{contact.second_phone}"
+  end
+
+  def display_contact_third_phone (contact)
+    return "-" if contact.third_phone.blank?
+
+    "#{display_contact_third_phone_description(contact)}#{contact.third_phone}"
+  end
+
   def display_contact_phone_number (contact)
     return "-" if contact.phone_number.blank?
 
-    contact.phone_number
+    "#{display_contact_phone_description(contact)}#{contact.phone_number}"
   end
 
   def display_contact_email_address (contact)
@@ -33,6 +45,24 @@ module ContactsHelper
     return "-" if contact.notes.blank?
 
     contact.notes
+  end
+
+  def display_contact_phone_description (contact)
+    return "Primary Phone - " if contact.phone_description.blank?
+
+    "#{contact.phone_description} - "
+  end
+
+  def display_contact_second_phone_description (contact)
+    return "Secondary Phone - " if contact.second_phone_description.blank?
+
+    "#{contact.second_phone_description} - "
+  end
+
+  def display_contact_third_phone_description (contact)
+    return "Tertiary Phone - " if contact.third_phone_description.blank?
+
+    "#{contact.third_phone_description} - "
   end
 
   def display_contact_coordinates (contact)

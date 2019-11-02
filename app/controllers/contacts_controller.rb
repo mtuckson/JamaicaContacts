@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @ecclesia = Ecclesium.all
+    @phone_descriptions = get_phone_descriptions
   end
   def create
     @contact = Contact.new(contact_params)
@@ -24,6 +25,7 @@ class ContactsController < ApplicationController
   def edit
     @contact = Contact.find(params[:id])
     @ecclesia = Ecclesium.all.sort_by(&:name)
+    @phone_descriptions = get_phone_descriptions
   end
   def update
     @contact = Contact.find(params[:id])
@@ -51,7 +53,13 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:first_name, :last_name, :alias, :phone_number,
       :email_address, :postal_address, :longitude,
       :latitude, :baptism_status, :gender, :birth_date,
-      :notes, :ecclesium_id, :avatar)
+      :notes, :ecclesium_id, :avatar, :second_phone, :third_phone,
+      :phone_description, :second_phone_description, :third_phone_description)
+    end
+
+    def get_phone_descriptions
+        descriptions = Contact.pluck(:phone_description) + Contact.pluck(:second_phone_description) + Contact.pluck(:third_phone_description)
+        descriptions.uniq
     end
 
 end
