@@ -12,8 +12,11 @@ class Contact < ApplicationRecord
   end
 
   def full_name
-    alias_string = self.alias.present? ? "“#{self.alias}”" : nil
-    [bro_or_sis, first_name, alias_string, last_name].compact.join(' ')
+    [bro_or_sis, first_name, last_name].compact.join(' ')
+  end
+
+  def nickname
+    self.alias
   end
 
   def bro_or_sis
