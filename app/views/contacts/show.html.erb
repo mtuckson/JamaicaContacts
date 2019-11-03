@@ -20,7 +20,7 @@
   </div>
   <div class="row">
     <div class="col-md-7 contact-info">
-      <div class="row">
+      <div class="row contact-info-row">
         <div class="col-sm-3 contact-info-label">
           <small><%= display_contact_phone_number_description(@contact) %></small>
         </div>
@@ -29,7 +29,7 @@
         </div>
       </div>
       <% if @contact.second_phone.present? && @contact.second_phone != '-' %>
-        <div class="row">
+        <div class="row contact-info-row">
           <div class="col-sm-3 contact-info-label">
             <small><%= display_contact_second_phone_description(@contact) %></small>
           </div>
@@ -39,7 +39,7 @@
         </div>
       <% end %>
       <% if @contact.third_phone.present? && @contact.third_phone != '-' %>
-        <div class="row">
+        <div class="row contact-info-row">
           <div class="col-sm-3 contact-info-label">
             <small><%= display_contact_third_phone_description(@contact) %></small>
           </div>
@@ -48,7 +48,7 @@
           </div>
         </div>
       <% end %>
-      <div class="row">
+      <div class="row contact-info-row">
         <div class="col-sm-3 contact-info-label">
           <small>Email</small>
         </div>
@@ -56,7 +56,7 @@
           <%= display_contact_email_address(@contact) %>
         </div>
       </div>
-      <div class="row">
+      <div class="row contact-info-row">
         <div class="col-sm-3 contact-info-label">
           <small>Birthday</small>
         </div>
@@ -64,7 +64,7 @@
           <%= display_contact_birth_date(@contact) %>
         </div>
       </div>
-      <div class="row">
+      <div class="row contact-info-row">
         <div class="col-sm-3 contact-info-label">
           <small>Ecclesia</small>
         </div>
@@ -76,7 +76,7 @@
           <% end %>
         </div>
       </div>
-      <div class="row">
+      <div class="row contact-info-row">
         <div class="col-sm-3 contact-info-label">
           <small>Address</small>
         </div>
