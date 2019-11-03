@@ -29,7 +29,13 @@ class ContactsController < ApplicationController
   end
   def update
     @contact = Contact.find(params[:id])
+
+    contact_ecclesium_id_before_update = @contact.ecclesium_id
+
     @contact.update(contact_params)
+
+    contact_ecclesium_id_after_update = @contact.ecclesium_id
+    if_ecclesia_change_check_recording_brother_status(@contact,contact_ecclesium_id_before_update, contact_ecclesium_id_after_update)
     redirect_to @contact
   end
   def destroy
@@ -55,6 +61,18 @@ class ContactsController < ApplicationController
       :latitude, :baptism_status, :gender, :birth_date,
       :notes, :ecclesium_id, :avatar, :second_phone, :third_phone,
       :phone_description, :second_phone_description, :third_phone_description)
+    end
+
+    def if_ecclesia_change_check_recording_brother_status(contact, contact_ecclesium_id_before_update, contact_ecclesium_id_after_update)
+
+        if contact_ecclesium_id_before_update == contact_ecclesium_id_after_update
+        return
+      end
+      ecclesia_before = Ecclesium.find_by_id(contact_ecclesium_id_before_update)
+      if ecclesia_before.recording_brother_id == contact.id
+        ecclesia_before.recording_brother_id = nil
+        ecclesia_before.save
+      end
     end
 
     def get_phone_descriptions
