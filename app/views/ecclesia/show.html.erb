@@ -77,27 +77,52 @@
 <% if @contact.blank? == true %>
 
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-12">
+<div class="container mt-4 pr-3">
+  <div class="row pr-5">
+    <div class="col-7 pl-4">
       <div class="row">
+        <div class="col-3">
 
-      <h2>Members</h2>
+        </div>
+        <div class="col-9">
+                    <h2 class="">Members</h2>
+        </div>
+
       </div>
-      <div class="list-group list-group-flush"">
 
+
+
+          <div class="row">
+            <div class="col-12">
+      <div class="list-group list-group-flush">
         <%@contacts.each do |contact| %>
         <div class="row list-group-item d-flex">
           <div class="col-3  text-right">
             <%=link_to contact.full_name, contact %>
           </div>
-          <div class="col-9">
+          <div class="col-4 pl-4 align-self-center">
+            <% if contact.phone_number.blank? == false %>
+            <div class="row">
+              <%= display_contact_phone_number_description(contact)  %>
+            </div>
+            <% end %>
+            <% if contact.second_phone.blank? == false %>
+            <div class="row">
+              <%= display_contact_second_phone_description(contact)  %>
+            </div>
+            <% end %>
+            <% if contact.third_phone.blank? == false %>
+            <div class="row">
+              <%= display_contact_third_phone_description(contact)  %>
+            </div>
+            <% end %>
+
+          </div>
+          <div class="col-5 align-self-center">
             <% if contact.phone_number.blank? == false %>
             <div class="row">
               <%= display_contact_phone_number(contact)  %>
             </div>
-            <% else %>
-            -
             <% end %>
             <% if contact.second_phone.blank? == false %>
             <div class="row">
@@ -110,15 +135,23 @@
             </div>
             <% end %>
 
+          </div>
+
+        </div>
+                <% end %>
+        </div>
+
+
+
 
 
           </div>
         </div>
 
-        <% end %>
+
       </div>
 
-    </div>
+
 
   </div>
 

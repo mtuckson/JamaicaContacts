@@ -24,37 +24,37 @@
 
 
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 ">
           <div class="list-group list-group-flush">
-            <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
-                Primary Phone:
+            <div class="row list-group-item d-flex ">
+              <div class="col-3 text-muted text-right align-self-center">
+                <%= display_contact_phone_number_description(@contact) %>:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <%= display_contact_phone_number(@contact) %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
-                Second Phone:
+              <div class="col-3 text-muted text-right align-self-center">
+                <%= display_contact_second_phone_description(@contact) %>:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <%= display_contact_second_phone(@contact) %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
-                 Third Phone:
+              <div class="col-3 text-muted text-right align-self-center">
+                <%= display_contact_third_phone_description(@contact) %>:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <%= display_contact_third_phone(@contact) %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
+              <div class="col-3 text-muted text-right align-self-center">
                 Email:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <%= display_contact_email_address(@contact) %>
               </div>
             </div>
@@ -62,15 +62,15 @@
               <div class="col-3 text-muted text-right">
                 Birthday:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <%= display_contact_birth_date(@contact)  %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
+              <div class="col-3 text-muted text-right align-self-center">
                 Ecclesia:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <% if @ecclesium.name =="none" %>
                 <%= @ecclesium.name %>
                 <% else %>
@@ -79,34 +79,34 @@
               </div>
             </div>
             <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
+              <div class="col-3 text-muted text-right align-self-center">
                 Address:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <%= display_contact_postal_address(@contact)   %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
+              <div class="col-3 text-muted text-right align-self-center">
                 Coordinates:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <%= display_contact_coordinates(@contact) %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
+              <div class="col-3 text-muted text-right align-self-center">
                 Notes:
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <%= display_contact_notes(@contact)   %>
               </div>
             </div>
             <div class="row list-group-item d-flex">
-              <div class="col-3 ">
+              <div class="col-3 align-self-center">
 
               </div>
-              <div class="col-9">
+              <div class="col-9 align-self-center">
                 <div class="row">
                   <%= button_to "Edit", edit_contact_path(@contact), method: :get, class: "mr-3 btn btn-secondary" %>
                   <%= button_to "Delete", @contact, method: :delete, class: "btn btn-danger" %>
