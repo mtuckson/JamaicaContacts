@@ -56,13 +56,13 @@ module ContactsHelper
   end
 
   def display_contact_second_phone_description (contact)
-    return "Secondary Phone" if contact.second_phone_description.blank?
+    return "Second Phone" if contact.second_phone_description.blank?
 
     "#{contact.second_phone_description}"
   end
 
   def display_contact_third_phone_description (contact)
-    return "Tertiary Phone" if contact.third_phone_description.blank?
+    return "Third Phone" if contact.third_phone_description.blank?
 
     "#{contact.third_phone_description}"
   end
