@@ -12,8 +12,8 @@
       <div class="profile-pic" style ="background-image: url(<%= avatar_url(@contact) %>);"></div>
       <h1>
         <%= @contact.full_name %>
-        <% if @contact.nickname %>
-          (<%= @contact.nickname %>)
+        <% unless @contact.nickname.blank? %>
+          <%= display_nickname(@contact) %>
         <% end %>
       </h1>
     </div>

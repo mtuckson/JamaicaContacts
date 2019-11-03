@@ -61,6 +61,11 @@ module ContactsHelper
     "#{contact.second_phone_description}"
   end
 
+  def display_nickname(contact)
+    "(#{contact.nickname})"
+
+  end
+
   def display_contact_third_phone_description (contact)
     return "Third Phone" if contact.third_phone_description.blank?
 
