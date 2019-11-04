@@ -9,7 +9,7 @@
 <div class="container">
   <div class="row mt-5 mb-4">
     <div class="col-12 d-flex align-items-center contact-header">
-      <div class="profile-pic" style ="background-image: url(<%= avatar_url(@contact) %>);"></div>
+      <div class="contact-pic" style ="background-image: url(<%= avatar_url(@contact) %>);"></div>
       <h1>
         <%= @contact.full_name %>
         <% unless @contact.nickname.blank? %>

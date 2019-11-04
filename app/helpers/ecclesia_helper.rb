@@ -1,9 +1,5 @@
 module EcclesiaHelper
-  def avatar_url(ecclesia)
-    return asset_path('empty-contact.png') if ecclesia.avatar_url.blank?
 
-    ecclesia.avatar_url
-  end
 
   def display_ecclesium_postal_address (ecclesium)
     return "-" if ecclesium.postal_address.blank?

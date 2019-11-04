@@ -14,3 +14,62 @@
   width: 100%;
   height: 400px;
 }
+
+.ecclesia-header {
+  .ecclesia-pic {
+    margin-right: 35px;
+    min-width: 8rem;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.ecclesia-info {
+  .ecclesia-info-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .ecclesia-info-label {
+    color: #808080;
+  }
+
+  .row {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .btn {
+    min-width: 100px;
+  }
+}
+
+.member-info {
+  .member-info-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &:first-child{
+      padding-top: 0rem;
+    }
+  }
+
+  .member-info-label {
+    color: #808080;
+  }
+
+  .row {
+    &:last-child {
+        border-bottom: none;
+      }
+  }
+
+  .btn {
+    min-width: 100px;
+  }
+
+}

@@ -5,102 +5,86 @@
     });
     </script>
 <% end %>
-
 <div class="container">
-  <div class="row mt-5">
-    <div class="col-12">
-
-      <div class="row mt-2 mb-3">
-        <div class="col-12 d-flex align-items-center">
-          <div class="profile-pic"  style ="background: url(<%= avatar_url(@ecclesium) %>);"></div>
-          <h1 class="ml-5">
-            <%= @ecclesium.name %>
-          </h1>
+  <div class="row mt-5 mb-4">
+    <div class="col-12 d-flex align-items-center ecclesia-header">
+      <div class="ecclesia-pic"  style ="background: url(<%= avatar_url(@ecclesium) %>);"></div>
+      <h1>
+        <%= @ecclesium.name %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7 ecclesia-info">
+      <div class="row ecclesia-info-row">
+        <div class="col-sm-3 ecclesia-info-label">
+          <small>Address:</small>
+        </div>
+        <div class="col-sm-9">
+          <%= display_ecclesium_postal_address(@ecclesium)  %>
         </div>
       </div>
+      <div class="row ecclesia-info-row">
+        <div class="col-sm-3 ecclesia-info-label">
+          <small>Rec Brother:</small>
+        </div>
+        <div class="col-sm-9">
+          <% if @recording_brother.first_name =="none" %>
+          <%= @recording_brother.first_name %>
+          <% else %>
+          <%= link_to @recording_brother.full_name, contact_path(@recording_brother) %>
+          <% end %>        </div>
       </div>
-      <div class="col-7">
-
-
-
+      <div class="row ecclesia-info-row">
+        <div class="col-sm-3 ecclesia-info-label">
+          <small>Coordinates:</small>
+        </div>
+        <div class="col-sm-9">
+          <%= display_ecclesium_coordinates(@ecclesium)%>
+        </div>
+      </div>
       <div class="row">
-        <div class="col-12">
-          <div class="list-group list-group-flush">
-            <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
-                Address:
-              </div>
-              <div class="col-9">
-                <%= display_ecclesium_postal_address(@ecclesium)  %>
-              </div>
-            </div>
-            <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
-                Rec Brother:
-              </div>
-              <div class="col-9">
-                <% if @recording_brother.first_name =="none" %>
-                <%= @recording_brother.first_name %>
-                <% else %>
-                <%= link_to @recording_brother.full_name, contact_path(@recording_brother) %>
-                <% end %>
-              </div>
-            </div>
-            <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
-                Coordinates:
-              </div>
-              <div class="col-9">
-                <%= display_ecclesium_coordinates(@ecclesium)%>
-              </div>
-            </div>
-            <div class="row list-group-item d-flex">
-              <div class="col-3 text-muted text-right">
-                Notes:
-              </div>
-              <div class="col-9">
-                <%=  display_ecclesium_notes(@ecclesium)%>
-              </div>
-            </div>
-
-          </div>
+        <div class="col-sm-3 ecclesia-info-label">
+          <small>Notes:</small>
+        </div>
+        <div class="col-sm-9">
+          <%=  display_ecclesium_notes(@ecclesium)%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-9">
+          <%= link_to "Edit", edit_ecclesium_path(@ecclesium), method: :get, class: "btn btn-secondary mr-3" %>
+          <%= link_to "Delete", @ecclesium, method: :delete, class: "btn btn-danger" %>
         </div>
       </div>
     </div>
-
-    <div class="col-5">
-      <div id="map" class = "ml-4"></div>
+    <div class="col-md-5 ecclesia-map">
+      <div id="map"></div>
     </div>
-
   </div>
 </div>
+
 <% unless @contacts.blank? %>
+  <div class="container">
+    <div class="row mt-5 mb-4">
+      <div class="col-12 d-flex align-items-center profile-header">
+        <div class="profile-pic"  style = "height: 0rem;"></div>
 
-
-<div class="container mt-4 pr-3">
-  <div class="row pr-5">
-    <div class="col-7 pl-4">
-      <div class="row">
-        <div class="col-3">
-
-        </div>
-        <div class="col-9">
-                    <h2 class="">Members</h2>
-        </div>
-
+        <h3>
+          Members
+        </h3>
       </div>
-
-
-
-          <div class="row">
-            <div class="col-12">
-      <div class="list-group list-group-flush">
+    </div>
+    <div class="row">
+      <div class="col-12 member-info">
         <%@contacts.each do |contact| %>
-        <div class="row list-group-item d-flex">
-          <div class="col-3  text-right">
-            <%=link_to contact.full_name, contact %>
+        <div class="row member-info-row">
+          <div class="col-sm-3 member-info-label align-self-center">
+            <small><%= link_to contact.full_name, contact %></small>
           </div>
-          <div class="col-4 pl-4 align-self-center">
+          <div class="col-4 align-self-center">
             <% if contact.phone_number.blank? == false %>
             <div class="row">
               <%= display_contact_phone_number_description(contact)  %>
@@ -116,7 +100,6 @@
               <%= display_contact_third_phone_description(contact)  %>
             </div>
             <% end %>
-
           </div>
           <div class="col-5 align-self-center">
             <% if contact.phone_number.blank? == false %>
@@ -134,28 +117,11 @@
               <%= display_contact_third_phone(contact)  %>
             </div>
             <% end %>
-
-          </div>
-
-        </div>
-                <% end %>
-        </div>
-
-
-
-
-
           </div>
         </div>
-
-
+        <% end %>
       </div>
 
-
-
+    </div>
   </div>
-
-
-
-</div>
 <% end %>
