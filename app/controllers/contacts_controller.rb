@@ -68,6 +68,9 @@ class ContactsController < ApplicationController
         if contact_ecclesium_id_before_update == contact_ecclesium_id_after_update
         return
       end
+      if contact_ecclesium_id_before_update.blank?
+        return
+      end 
       ecclesia_before = Ecclesium.find_by_id(contact_ecclesium_id_before_update)
       if ecclesia_before.recording_brother_id == contact.id
         ecclesia_before.recording_brother_id = nil

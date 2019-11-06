@@ -6,43 +6,14 @@
     </script>
 <% end %>
 
-
-<h1 class="display-1 text-center">List of Ecclesias</h1>
 <div class="container">
+<h1 class="display-1 text-center mt-4 mb-4">List of Ecclesias</h1>
 
-<table class="table table-striped" id = "contantEcclesiaTables">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Recording Brother</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @ecclesia.each do |ecclesium| %>
-      <tr>
-        <td><img src='http://maps.google.com/mapfiles/ms/icons/green-dot.png' alt="green marker"></td>
-        <td><%= link_to ecclesium.name, ecclesium_path(ecclesium), input_html: {'data-turbolinks'=> "false"}%></td>
-        <td><%= ecclesium.postal_address %></td>
-        <% if ecclesium.recording_brother_id %>
-        <% recording_brother = Contact.find(ecclesium.recording_brother_id)  %>
-        <% else %>
-        <% recording_brother = Contact.new %>
-        <% recording_brother.first_name = "none" %>
-        <% end %>
-        <% if recording_brother.first_name =="none" %>
-        <td><%= recording_brother.first_name %></td>
-        <% else %>
-        <td><%= link_to recording_brother.full_name, contact_path(recording_brother) %></td>
-        <% end %>
+  <%= render 'layouts/ecclesia-list', ecclesia: @ecclesia %>
 
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'Add Ecclesia', new_ecclesium_path %>
+<%= link_to 'Add Ecclesia', new_ecclesium_path, class: "btn btn-secondary mr-3 my-3" %>
+
 
 <div id="initMapEcclesias"></div>
 </div>
