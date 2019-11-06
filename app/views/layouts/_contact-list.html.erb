@@ -5,40 +5,66 @@
       <div class="col-sm-3 member-info-label align-self-center">
         <small><%= link_to contact.full_name, contact %></small>
       </div>
-      <div class="col-4 align-self-center">
-        <% if contact.phone_number.blank? == false %>
-        <div class="row">
-          <%= display_contact_phone_number_description(contact)  %>
-        </div>
-        <% end %>
-        <% if contact.second_phone.blank? == false %>
-        <div class="row">
-          <%= display_contact_second_phone_description(contact)  %>
-        </div>
-        <% end %>
-        <% if contact.third_phone.blank? == false %>
-        <div class="row">
-          <%= display_contact_third_phone_description(contact)  %>
-        </div>
-        <% end %>
+      <div class="col-6 align-self-center">
+        <table class="table table-borderless contact-list-table">
+          <tbody>
+            <tr class = "contact-row">
+              <td>
+                <% if contact.phone_number.blank? == false%>
+                <div class="row">
+                  <%= display_contact_phone_number(contact) %>
+                </div>
+                <% end %>
+              </td>
+              <td>
+                <% if contact.phone_number.blank? == false%>
+                <div class="row">
+                  <%= display_contact_phone_number_description(contact)  %>
+                </div>
+                <% end %>
+              </td>
+            </tr>
+            <tr class = "contact-row">
+              <td>
+                <% if contact.second_phone.blank? == false %>
+                <div class="row">
+                  <%= display_contact_second_phone(contact)  %>
+                </div>
+                <% end %>
+              </td>
+              <td>
+                <% if contact.second_phone.blank? == false %>
+                <div class="row">
+                  <%= display_contact_second_phone_description(contact)  %>
+                </div>
+                <% end %>
+              </td>
+            </tr>
+            <tr class = "contact-row">
+              <td>
+                <% if contact.third_phone.blank? == false %>
+                <div class="row">
+                  <%= display_contact_third_phone(contact)  %>
+                </div>
+                <% end %>
+              </td>
+              <td>
+                <% if contact.third_phone.blank? == false %>
+                <div class="row">
+                  <%= display_contact_third_phone_description(contact)  %>
+                </div>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
       </div>
-      <div class="col-5 align-self-center">
-        <% if contact.phone_number.blank? == false %>
-        <div class="row">
-          <%= display_contact_phone_number(contact)  %>
-        </div>
-        <% end %>
-        <% if contact.second_phone.blank? == false %>
-        <div class="row">
-          <%= display_contact_second_phone(contact)  %>
-        </div>
-        <% end %>
-        <% if contact.third_phone.blank? == false %>
-        <div class="row">
-          <%= display_contact_third_phone(contact)  %>
-        </div>
-        <% end %>
+      <div class="col-3">
+
       </div>
+
     </div>
     <% end %>
   </div>
