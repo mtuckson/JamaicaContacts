@@ -14,64 +14,35 @@
 
   </div>
   <div class="container">
-    <%= form_tag root_path, method: :get do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag 'Search', placeholder: "Search"  %>
-    <% end %>
-  </div>
-  <div class="container">
-    <div class="row">
-      <% if @contactsNoJson != nil %>
-      <% if @contactsNoJson.length > 0 %>
+    <% unless @ecclesiaNoJson.blank?  %>
+    <div class="row mt-5 mb-4">
+      <div class="col-12 d-flex align-items-center contact-header">
+        <div class="contact-pic"  style = "height: 0rem;"></div>
+        <h3>
+          Ecclesias
+        </h3>
+      </div>
+    </div>
+    <%= render 'layouts/ecclesia-list', ecclesia: @ecclesiaNoJson %>
 
+      <% end %>
+      <% unless @contactsNoJson.blank? %>
 
-      <div class="col  text-center">
-
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Contact Name</th>
-            </thead>
-            <tbody>
-              <% @contactsNoJson.each do |contact| %>
-              <tr>
-                <td><img src='http://maps.google.com/mapfiles/ms/icons/red-dot.png' alt="red marker"></td>
-                <td><%= link_to contact.full_name, contact_path(contact)%></td>
-              </tr>
-              <% end %>
-
-            </tbody>
-          </table>
+      <div class="row mt-5 mb-4">
+        <div class="col-12 d-flex align-items-center contact-header">
+          <div class="contact-pic"  style = "height: 0rem;"></div>
+          <h3>
+            Contacts
+          </h3>
         </div>
+      </div>
+
+      <%= render 'layouts/contact-list', contacts: @contactsNoJson %>
+
         <% end %>
-        <% end %>
-        <% if @ecclesiaNoJson != nil  %>
-        <% if @ecclesiaNoJson.length > 0 %>
 
 
-        <div class="col  text-center">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Ecclesia Name</th>
-              </thead>
-              <tbody>
-                <% @ecclesiaNoJson.each do |ecclesium| %>
-                <tr>
-                  <td><img src='http://maps.google.com/mapfiles/ms/icons/green-dot.png' alt="green marker"></td>
-                  <td><%= link_to ecclesium.name, ecclesium_path(ecclesium)%></td>
-                </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-          <% end %>
-          <% end %>
 
-
-        </div>
       </div>
 
 

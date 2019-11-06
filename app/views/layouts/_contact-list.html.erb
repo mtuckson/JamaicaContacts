@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-12 member-info">
+    <% contacts.each do |contact| %>
+    <div class="row member-info-row">
+      <div class="col-sm-3 member-info-label align-self-center">
+        <small><%= link_to contact.full_name, contact %></small>
+      </div>
+      <div class="col-4 align-self-center">
+        <% if contact.phone_number.blank? == false %>
+        <div class="row">
+          <%= display_contact_phone_number_description(contact)  %>
+        </div>
+        <% end %>
+        <% if contact.second_phone.blank? == false %>
+        <div class="row">
+          <%= display_contact_second_phone_description(contact)  %>
+        </div>
+        <% end %>
+        <% if contact.third_phone.blank? == false %>
+        <div class="row">
+          <%= display_contact_third_phone_description(contact)  %>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-5 align-self-center">
+        <% if contact.phone_number.blank? == false %>
+        <div class="row">
+          <%= display_contact_phone_number(contact)  %>
+        </div>
+        <% end %>
+        <% if contact.second_phone.blank? == false %>
+        <div class="row">
+          <%= display_contact_second_phone(contact)  %>
+        </div>
+        <% end %>
+        <% if contact.third_phone.blank? == false %>
+        <div class="row">
+          <%= display_contact_third_phone(contact)  %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
