@@ -1,30 +1,8 @@
-<h1 class="display-1 text-center">List of Contacts</h1>
 <div class="container">
+  <h1 class="display-1 text-center mt-4 mb-4">List of Contacts</h1>
+  <%= render 'full-contact-list', contacts: @contacts %>
 
 
-<table class="table table-striped" id = "contantEcclesiaTables">
-  <thead>
-    <tr>
-      <th></th>
-      <th>First</th>
-      <th>Last</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Address</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><img src='http://maps.google.com/mapfiles/ms/icons/red-dot.png' alt="red marker"></td>
-        <td><%=link_to contact.first_name, contact %></td>
-        <td><%= link_to contact.last_name, contact %></td>
-        <td><%= contact.email_address %></td>
-        <td><%= contact.phone_number %></td>
-        <td><%= contact.postal_address %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'New Contact', new_contact_path %>
+
+<%= link_to 'New Contact', new_contact_path, class: "btn btn-secondary mr-3 my-3" %>
 </div>
