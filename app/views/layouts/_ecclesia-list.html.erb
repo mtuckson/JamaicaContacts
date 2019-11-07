@@ -5,51 +5,46 @@
       <div class="col-sm-3 member-info-label align-self-center">
         <small><%= link_to ecclesium.name, ecclesium %></small>
       </div>
-      <div class="col-9 align-self-center">
-        <table class="table table-borderless ecclesia-list-table">
-          <tbody>
-            <tr class = "contact-row">
-              <td>
-                <b>Address</b>
-              </td>
-              <td>
-                <b>Recording Brother</b>
-              </td>
-            </tr>
-            <tr class = "contact-row">
+      <div class="col-sm-4 align-self-center">
+        <% if ecclesium.id == ecclesia.first.id %>
+        <div class="row contact-row">
+          <b>Address</b>
+        </div>
+        <% end %>
+        <div class="row contact-row ecclesia-address-row">
+          <div class="col-12 pl-0 align-self-center">
+            <%= display_ecclesium_postal_address(ecclesium) %>
 
-              <td rowspan="2">
-                <%= display_ecclesium_postal_address (ecclesium) %>
-              </td>
-              <% if ecclesium.recording_brother_id.blank? == false %>
-              <td>
-                <%= link_to ecclesium.recording_brother.full_name, ecclesium.recording_brother %>
-              </td>
-              <% else %>
-              <td>-</td>
-              <% end %>
-            </tr>
-            <tr class = "contact-row">
+          </div>
+        </div>
 
-              <% if ecclesium.recording_brother_id.blank? == false %>
-              <td>
-                <%= display_contact_phone_number(ecclesium.recording_brother)  %>
-              </td>
-              <% else %>
-              <td>-</td>
-              <% end %>
-
-            </tr>
-
-          </tbody>
-        </table>
-
+      </div>
+      <div class="col-sm-5 align-self-center">
+        <% if ecclesium.id == ecclesia.first.id %>
+        <div class="row contact-row">
+          <b>Recording Brother</b>
+        </div>
+        <% end %>
+        <div class="row contact-row">
+          <% if ecclesium.recording_brother_id.blank? == false %>
+          <%= link_to ecclesium.recording_brother.full_name, ecclesium.recording_brother %>
+          <% else %>
+          -
+          <% end %>
+        </div>
+        <div class="row contact-row">
+          <% if ecclesium.recording_brother_id.blank? == false %>
+          <%= display_contact_phone_number(ecclesium.recording_brother)  %>
+          <% else %>
+          -
+          <% end %>
+        </div>
 
       </div>
 
-        </div>
-      <% end %>
+    </div>
+    <% end %>
 
 
   </div>
-  </div>
+</div>
