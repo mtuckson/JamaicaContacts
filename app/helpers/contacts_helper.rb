@@ -6,7 +6,7 @@ module ContactsHelper
   end
 
   def display_contact_second_phone (contact)
-    return "-" if contact.second_phone.blank?
+    return "" if contact.second_phone.blank?
 
     phone_only_numbers = contact.second_phone.gsub(/[^0-9]/, '')
     if phone_only_numbers.size == 11
@@ -23,7 +23,7 @@ module ContactsHelper
 
 
   def display_contact_third_phone (contact)
-    return "-" if contact.third_phone.blank?
+    return "" if contact.third_phone.blank?
 
     phone_only_numbers = contact.third_phone.gsub(/[^0-9]/, '')
     if phone_only_numbers.size == 11
@@ -40,7 +40,7 @@ module ContactsHelper
 
 
   def display_contact_phone_number (contact)
-    return "-" if contact.phone_number.blank?
+    return "" if contact.phone_number.blank?
 
     phone_only_numbers = contact.phone_number.gsub(/[^0-9]/, '')
     if phone_only_numbers.size == 11
@@ -56,25 +56,25 @@ module ContactsHelper
   end
 
   def display_contact_email_address (contact)
-    return "-" if contact.email_address.blank?
+    return "" if contact.email_address.blank?
 
     contact.email_address
   end
 
   def display_contact_postal_address (contact)
-    return "-" if contact.postal_address.blank?
+    return "" if contact.postal_address.blank?
 
     contact.postal_address
   end
 
   def display_contact_birth_date (contact)
-    return "-" if contact.birth_date.blank?
+    return "" if contact.birth_date.blank?
 
     contact.birth_date
   end
 
   def display_contact_notes (contact)
-    return "-" if contact.notes.blank?
+    return "" if contact.notes.blank?
 
     contact.notes
   end
@@ -86,7 +86,7 @@ module ContactsHelper
   end
 
   def display_contact_second_phone_description (contact)
-    return "Second Phone" if contact.second_phone_description.blank?
+    return "" if contact.second_phone_description.blank?
 
     "#{contact.second_phone_description}"
   end
@@ -97,7 +97,7 @@ module ContactsHelper
   end
 
   def display_contact_third_phone_description (contact)
-    return "Third Phone" if contact.third_phone_description.blank?
+    return "" if contact.third_phone_description.blank?
 
     "#{contact.third_phone_description}"
   end

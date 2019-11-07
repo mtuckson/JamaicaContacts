@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12 member-info">
     <div class="row ">
-      <div class="col-sm-3 member-info-label align-self-center">
+      <div class="col-sm-3 member-info-label align-self-top">
       </div>
       <div class="col-sm-4 align-self-center pl-0">
         <b>Address</b>
@@ -13,30 +13,26 @@
     </div>
     <% ecclesia.each do |ecclesium| %>
     <div class="row member-info-row">
-      <div class="col-sm-3 member-info-label align-self-center">
-        <small><%= link_to ecclesium.name, ecclesium %></small>
+      <div class="col-sm-3 member-info-label align-self-top">
+        <%= link_to ecclesium.name, ecclesium %>
       </div>
       <div class="col-sm-4 align-self-center">
         <div class="row contact-row ecclesia-address-row">
-          <div class="col-12 pl-0 align-self-center">
+          <div class="col-12 pl-0 align-self-top">
             <%= display_ecclesium_postal_address(ecclesium) %>
           </div>
         </div>
 
       </div>
-      <div class="col-sm-5 align-self-center">
+      <div class="col-sm-5 align-self-top">
         <div class="row contact-row">
           <% if ecclesium.recording_brother_id.blank? == false %>
           <%= link_to ecclesium.recording_brother.full_name, ecclesium.recording_brother %>
-          <% else %>
-          -
           <% end %>
         </div>
         <div class="row contact-row">
           <% if ecclesium.recording_brother_id.blank? == false %>
           <%= display_contact_phone_number(ecclesium.recording_brother)  %>
-          <% else %>
-          -
           <% end %>
         </div>
 

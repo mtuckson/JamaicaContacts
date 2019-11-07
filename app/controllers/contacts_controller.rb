@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @contacts = Contact.all.sort_by(&:full_name)
+    @contacts = Contact.all.sort_by(&:last_name)
   end
   def show
     @contact = Contact.find(params[:id])
@@ -70,7 +70,7 @@ class ContactsController < ApplicationController
       end
       if contact_ecclesium_id_before_update.blank?
         return
-      end 
+      end
       ecclesia_before = Ecclesium.find_by_id(contact_ecclesium_id_before_update)
       if ecclesia_before.recording_brother_id == contact.id
         ecclesia_before.recording_brother_id = nil

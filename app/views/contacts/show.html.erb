@@ -53,7 +53,7 @@
           <small>Email</small>
         </div>
         <div class="col-sm-9">
-          <%= display_contact_email_address(@contact) %>
+          <%= mail_to @contact.email_address %>
         </div>
       </div>
       <div class="row contact-info-row">

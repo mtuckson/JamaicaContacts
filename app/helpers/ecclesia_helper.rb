@@ -2,7 +2,7 @@ module EcclesiaHelper
 
 
   def display_ecclesium_postal_address (ecclesium)
-    return "-" if ecclesium.postal_address.blank?
+    return "" if ecclesium.postal_address.blank?
 
     ecclesium.postal_address
   end
@@ -16,7 +16,7 @@ module EcclesiaHelper
   end
 
   def display_ecclesium_notes (ecclesium)
-    return "-" if ecclesium.notes.blank?
+    return "" if ecclesium.notes.blank?
 
     ecclesium.notes
   end

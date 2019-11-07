@@ -1,12 +1,62 @@
 <div class="row">
   <div class="col-12 member-info">
+
     <% contacts.each do |contact| %>
     <div class="row member-info-row">
-      <div class="col-sm-3 member-info-label align-self-center">
-        <small><%= link_to contact.full_name, contact %></small>
+      <div class="col-sm-3 member-info-label align-self-top">
+        <%= link_to contact.full_name, contact %>
       </div>
-      <div class="col-9 align-self-center">
+      <div class=" col-sm-4 align-self-top">
+        <% if contact.phone_number.blank? == false%>
+        <div class="d-flex row contact-row">
+          <b>
+            <%= display_contact_phone_number_description(contact)  %>
+          </b>
+          <div class="ml-auto">
+          <%= display_contact_phone_number(contact) %>
+          </div>
 
+        </div>
+        <% end %>
+        <% if contact.phone_number.blank? == false%>
+        <div class="d-flex row contact-row">
+          <b>
+            <%= display_contact_second_phone_description(contact)  %>
+          </b>
+          <div class="ml-auto">
+          <%= display_contact_second_phone(contact)  %>
+          </div>
+
+        </div>
+        <% end %>
+        <% if contact.phone_number.blank? == false%>
+        <div class="d-flex row contact-row">
+          <b>
+            <%= display_contact_third_phone_description(contact)  %>
+          </b>
+          <div class="ml-auto">
+          <%= display_contact_third_phone(contact)  %>
+        </div>
+
+        </div>
+        <% end %>
+
+      </div>
+      <div class="col-1">
+
+      </div>
+
+      <div class="col-sm-3 align-self-top pl-5">
+        <% if contact.postal_address.blank? == false %>
+        <div class="row">
+          <%= display_contact_postal_address (contact) %>
+        </div>
+      <% end %>
+      <% if contact.email_address.blank? == false %>
+        <div class="row">
+<%= mail_to contact.email_address %>
+        </div>
+      <% end %>
 
       </div>
 
@@ -16,64 +66,3 @@
   </div>
 
 </div>
-
-
-
-<table class="table table-borderless full-contact-list-table">
-  <tbody>
-    <tr class = "contact-row">
-      <td>
-        <% if contact.phone_number.blank? == false%>
-          <%= display_contact_phone_number(contact) %>
-        <% end %>
-      </td>
-      <td>
-        <% if contact.phone_number.blank? == false%>
-          <%= display_contact_phone_number_description(contact)  %>
-        <% end %>
-      </td>
-      <td>
-        <b>Address: </b>
-      </td>
-    </tr>
-    <tr class = "contact-row">
-      <td>
-        <% if contact.second_phone.blank? == false %>
-          <%= display_contact_second_phone(contact)  %>
-        <% end %>
-      </td>
-      <td>
-        <% if contact.second_phone.blank? == false %>
-          <%= display_contact_second_phone_description(contact)  %>
-        <% end %>
-      </td>
-      <td rowspan="2">
-        <%= display_contact_postal_address (contact) %>
-      </td>
-    </tr>
-    <tr class = "contact-row">
-      <td>
-        <% if contact.third_phone.blank? == false %>
-          <%= display_contact_third_phone(contact)  %>
-        <% end %>
-      </td>
-      <td>
-        <% if contact.third_phone.blank? == false %>
-          <%= display_contact_third_phone_description(contact)  %>
-        <% end %>
-      </td>
-    </tr>
-    <tr class = "contact-row">
-      <td>
-        <% if contact.email_address.blank? == false %>
-        <%= display_contact_email_address(contact) %>
-      <% end %>
-      </td>
-      <td>
-        <% if contact.email_address.blank? == false %>
-        Email
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
