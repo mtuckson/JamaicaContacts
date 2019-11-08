@@ -18,7 +18,7 @@
     <div class="col-md-7 ecclesia-info">
       <div class="row ecclesia-info-row">
         <div class="col-sm-3 ecclesia-info-label">
-          <small>Address:</small>
+          <small>Address</small>
         </div>
         <div class="col-sm-9">
           <%= display_ecclesium_postal_address(@ecclesium)  %>
@@ -26,7 +26,7 @@
       </div>
       <div class="row ecclesia-info-row">
         <div class="col-sm-3 ecclesia-info-label">
-          <small>Rec Brother:</small>
+          <small>Rec Brother</small>
         </div>
         <div class="col-sm-9">
           <% if @recording_brother.first_name =="none" %>
@@ -37,7 +37,7 @@
       </div>
       <div class="row ecclesia-info-row">
         <div class="col-sm-3 ecclesia-info-label">
-          <small>Coordinates:</small>
+          <small>Coordinates</small>
         </div>
         <div class="col-sm-9">
           <%= display_ecclesium_coordinates(@ecclesium)%>
@@ -45,7 +45,7 @@
       </div>
       <div class="row">
         <div class="col-sm-3 ecclesia-info-label">
-          <small>Notes:</small>
+          <small>Notes</small>
         </div>
         <div class="col-sm-9">
           <%=  display_ecclesium_notes(@ecclesium)%>
